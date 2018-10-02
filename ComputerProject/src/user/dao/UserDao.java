@@ -84,4 +84,36 @@ public class UserDao {
 				rs.getTimestamp("wdate").toLocalDateTime());
 		return user;
 	}
+	
+	
+	//Id 찾는 DAO
+		public User selectIdByName(Connection conn, String name, String phone, String email, String question, String answer)
+				throws SQLException {
+			String sql = "select loginId from user where name=? && phone=? && email=? && question=? && answer=?";
+			try (PreparedStatement pst = conn.prepareStatement(sql)) {
+				System.out.println(name);
+				System.out.println(phone);
+				System.out.println(email);
+				System.out.println(question);
+				System.out.println(answer);
+				pst.setString(1, name);
+				pst.setString(2, phone);
+				pst.setString(3, email);
+				pst.setString(4, question);
+				pst.setString(5, answer);
+				User user = null;
+			
+				try (ResultSet rs = pst.executeQuery()) {
+					if (rs.next()) {
+						 user = new User(rs.getString("loginId"));
+				
+						
+					}
+					return user;
+				}
+				
+
+			}
+
+		}
 }
