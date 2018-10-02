@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -415,15 +416,26 @@
 				</table>
 			</form>
 	</div>
-	<div id="join">
-		<a href="#" class="join">회원가입</a>
-	</div>
-	<div id="login">
-		<a href="#" class="login">로그인</a>
-	</div>
-	<div id="basket">
-		<a href="#" class="basket">장바구니</a>
-	</div>
+		<c:if test="${user == null }">
+			<div id="join">
+				<a href="join" class="join">회원가입</a>
+			</div>
+			<div id="login">
+				<a href="login" class="login">로그인</a>
+			</div>
+		</c:if>
+		<c:if test="${user != null }">
+			<div id="modify">
+				<a href="${pageContext.request.contextPath }/modify" class="modify">회원정보수정</a>
+			</div>
+			<div id="login">
+				<a href="logout" class="logout">로그아웃</a>
+			</div>
+		</c:if>
+
+		<div id="basket">
+			<a href="join" class="basket">장바구니</a>
+		</div>
 </div>
 <div id="header">
 	<div id="menu" class="container">
