@@ -17,7 +17,7 @@ public class LogoutHandler implements CommandHandler {
 		
 		resp.sendRedirect("main.jsp");
 
-		System.out.println("욜");
+		System.out.println("욜열");
 		return null;
 	}
 
