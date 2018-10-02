@@ -519,7 +519,7 @@ li .computer, .sound, .assembled_pc, .laptop, .storage_device {
 		</div>
 	</div>
 
-
+<div>asdf</div>
 	<div id="copyright">
 		<p>
 			&copy; Untitled. All rights reserved. | Photos by <a
