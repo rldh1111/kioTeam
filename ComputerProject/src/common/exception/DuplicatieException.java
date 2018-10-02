@@ -5,5 +5,6 @@ public class DuplicatieException extends RuntimeException {
 
 	public DuplicatieException(String message) {
 		super(message);
+		System.out.println("asdfasd");
 	}
 }
