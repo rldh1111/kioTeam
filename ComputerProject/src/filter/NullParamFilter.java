@@ -29,7 +29,6 @@ public class NullParamFilter implements Filter {
 		parameterNames = new String[st.countTokens()];
 		for (int i = 0; st.hasMoreTokens(); i++) {
 			parameterNames[i] = st.nextToken();
-
 		}
 	}
 
