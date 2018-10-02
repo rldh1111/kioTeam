@@ -410,7 +410,7 @@
 			<form>
 				<table>
 				<tr>
-					<td><input type="text" name="serchName" id="text"></td>
+					<td><input type="text" name="searchProduct" id="text"></td>
 					<td><input type="submit" value="검색" id="submit"></td>
 				</tr>
 				</table>
@@ -426,7 +426,7 @@
 		</c:if>
 		<c:if test="${user != null }">
 			<div id="modify">
-				<a href="${pageContext.request.contextPath }/modify" class="modify">회원정보수정</a>
+				<a href="${pageContext.request.contextPath }/modify?userId=${user.userId}" class="modify">회원정보수정</a>
 			</div>
 			<div id="login">
 				<a href="logout" class="logout">로그아웃</a>
