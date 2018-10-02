@@ -14,10 +14,7 @@ public class LogoutHandler implements CommandHandler {
 		if (session != null) {
 			session.invalidate();
 		}
-		
 		resp.sendRedirect("main.jsp");
-
-		System.out.println("욜열율");
 		return null;
 	}
 

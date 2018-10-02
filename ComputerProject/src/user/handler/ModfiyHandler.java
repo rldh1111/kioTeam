@@ -12,6 +12,7 @@ import common.handler.CommandHandler;
 import user.model.User;
 import user.service.ModifyRequest;
 import user.service.ModifyService;
+import user.service.ReadUserSerivce;
 
 public class ModfiyHandler implements CommandHandler {
 
@@ -47,13 +48,14 @@ public class ModfiyHandler implements CommandHandler {
 
 	}
 
-	private String processForm(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+	private String processForm(HttpServletRequest req, HttpServletResponse resp) throws IOException, SQLException {
 		try {
-			User user = (User) req.getSession().getAttribute("user");
+			int userId = Integer.parseInt(req.getParameter("userId"));
+			ReadUserSerivce readUserSerivce = ReadUserSerivce.getInstance();
+			User user = readUserSerivce.readUser(userId);
 			ModifyRequest modifyRequest = new ModifyRequest(user.getUserId(), user.getName(), user.getPassword(),
 					user.getAddress(), user.getEmail(), user.getPhone(), user.getQuestion(), user.getAnswer());
 			req.setAttribute("modReq", modifyRequest);
-			System.out.println("form: "+ user);
 			return FORM_VIEW;
 		} catch (UserNotFountException e) {
 			resp.sendError(HttpServletResponse.SC_NOT_FOUND);

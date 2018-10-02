@@ -114,7 +114,6 @@ text-decoration: none
 			</select></label> 
 			<label for="answer"><b>답변</b><input type="text" name="answer" value="${modReq.answer }" required></label>  
 			<input type="submit" value="수정하기">
-
 		</div>
 		<div class="container1" style="background-color: #f1f1f1">
 			<span class="psw">
