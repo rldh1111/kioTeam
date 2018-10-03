@@ -18,7 +18,7 @@ public class ModifyService {
 	private ModifyService() {
 	}
 
-	public void modify(ModifyRequest mr) throws SQLException {
+	public void modify(ModifyRequest mr) {
 		UserDao userDao = UserDao.getInstance();
 		try (Connection conn = ConnectionProvider.getConnection()) {
 			try {
@@ -32,8 +32,12 @@ public class ModifyService {
 			} catch (UserNotFoundException e) {
 				conn.rollback();
 				throw e;
+			} catch (SQLException e) {
+				conn.rollback();
+				throw new RuntimeException();
 			}
-
+		} catch (SQLException e) {
+			throw new RuntimeException();
 		}
 
 	}
