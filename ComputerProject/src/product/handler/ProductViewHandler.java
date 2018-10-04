@@ -1,15 +1,11 @@
-package user.handler;
-
-import java.io.IOException;
+package product.handler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import common.exception.UserNotFountException;
-import common.handler.CommandHandler;
-import user.service.DeleteService;
+import product.service.ProductViewService;
 
-public class DeleteHandler implements CommandHandler {
+public class ProductViewHandler {
 	private static final String FORM_VIEW = "#"; // 어드민 페이지로 이동
 
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
@@ -23,20 +19,14 @@ public class DeleteHandler implements CommandHandler {
 		}
 	}
 
-	private String processSubmit(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		try {
-			int userId = Integer.parseInt(req.getParameter("userId"));
-			DeleteService deleteService = DeleteService.getInstance();
-			deleteService.delete(userId);
-			return FORM_VIEW;
-		} catch (UserNotFountException e) {
-			resp.sendError(HttpServletResponse.SC_NOT_FOUND);
-			return null;
-		}
+	private String processSubmit(HttpServletRequest req, HttpServletResponse resp) {
+		ProductViewService productViewService = ProductViewService.getInstance();
+		productViewService.selectProduct(Integer.parseInt(req.getParameter("productId")));
+		return null;
 	}
 
 	private String processForm(HttpServletRequest req, HttpServletResponse resp) {
+		// TODO Auto-generated method stub
 		return FORM_VIEW;
 	}
-
 }

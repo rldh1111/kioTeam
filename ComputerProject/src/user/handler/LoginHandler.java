@@ -36,11 +36,9 @@ public class LoginHandler implements CommandHandler {
 		String password = req.getParameter("password").trim();
 		Map<String, Boolean> errors = new HashMap<String, Boolean>();
 		req.setAttribute("errors", errors);
-
 		if (!errors.isEmpty()) {
 			return FORM_VIEW;
 		}
-		
 		try {
 			User user = loginService.login(loginId, password);
 			req.getSession().setAttribute("user", user);

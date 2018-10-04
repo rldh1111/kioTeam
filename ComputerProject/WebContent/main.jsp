@@ -416,6 +416,7 @@ li .computer, .sound, .assembled_pc, .laptop, .storage_device {
 </style>
 </head>
 <body>
+	${ctxPath = pageContext.request.contextPath }
 	<div id="top" class="container">
 		<div id="logo">
 			<h1>
@@ -442,9 +443,7 @@ li .computer, .sound, .assembled_pc, .laptop, .storage_device {
 		</c:if>
 		<c:if test="${user != null }">
 			<div id="modify">
-				<a
-					href="${pageContext.request.contextPath }/modify?userId=${user.userId}"
-					class="modify">회원정보수정</a>
+				<a href="${ctxPath}/modify?userId=${user.userId}" class="modify">회원정보수정</a>
 			</div>
 			<div id="login">
 				<a href="logout" class="logout">로그아웃</a>
@@ -454,6 +453,12 @@ li .computer, .sound, .assembled_pc, .laptop, .storage_device {
 		<div id="basket">
 			<a href="join" class="basket">장바구니</a>
 		</div>
+		<c:if test="${user.userType == 'A'}">
+			<a href="${ctxPath}/userModifyPage">회원정보관리</a>
+		</c:if>
+		<c:if test="${user.userType == 'A'}">
+			<a href="${ctxPath}/productModifyPage">상품관리</a>
+		</c:if>
 	</div>
 	<div id="header">
 		<div id="menu" class="container">
@@ -477,15 +482,18 @@ li .computer, .sound, .assembled_pc, .laptop, .storage_device {
 			<ul>
 				<li class="assembled_pc"><a href="#" class="assembled_pc_drop">조립PC</a>
 					<div class="assembled_pc_content">
-						<a href="#">10~40만원대</a> <a href="#">50~60만원대</a> <a href="#">70~100만원대</a>
+						<a href="#">10~40만원대</a> <a href="#">50~60만원대</a> 
+						<a href="#">70~100만원대</a>
 						<a href="#">90~100만원대</a>
 					</div></li>
 			</ul>
 			<ul>
 				<li class="laptop"><a href="#" class="laptop_drop">노트북</a>
 					<div class="laptop_content">
-						<a href="#">게이밍 노트북</a> <a href="#">초경량 노트북</a> <a href="#">디자인
-							노트북</a> <a href="#">비지니스 노트북</a>
+						<a href="#">게이밍 노트북</a> 
+						<a href="#">초경량 노트북</a>
+						 <a href="#">디자인 노트북</a> 
+						 <a href="#">비지니스 노트북</a>
 					</div></li>
 			</ul>
 			<ul>
@@ -519,7 +527,7 @@ li .computer, .sound, .assembled_pc, .laptop, .storage_device {
 		</div>
 	</div>
 
-<div>asdf</div>
+	<div>asdf</div>
 	<div id="copyright">
 		<p>
 			&copy; Untitled. All rights reserved. | Photos by <a

@@ -30,21 +30,21 @@ public class ModfiyHandler implements CommandHandler {
 	}
 
 	private String processSubmit(HttpServletRequest req, HttpServletResponse resp) throws SQLException, IOException {
-		User user = (User) req.getSession().getAttribute("user");
-		ModifyRequest modifyRequest = new ModifyRequest(user.getUserId(), req.getParameter("name").trim(),
+		int userId = Integer.parseInt(req.getParameter("userId"));
+		ModifyRequest modifyRequest = new ModifyRequest(userId, req.getParameter("name").trim(),
 				req.getParameter("password").trim(), req.getParameter("address").trim(),
 				req.getParameter("email").trim(), req.getParameter("phone").trim(), req.getParameter("question").trim(),
 				req.getParameter("answer").trim());
 		req.setAttribute("modReq", modifyRequest);
-		ModifyService modifyService = ModifyService.getInstance();
-		modifyService.modify(modifyRequest);
-		Map<String, Boolean> errors = new HashMap<String, Boolean>();
-		req.setAttribute("errors", errors);
-		if (!errors.isEmpty()) {
-			return FORM_VIEW;
+		try {
+			ModifyService modifyService = ModifyService.getInstance();
+			modifyService.modify(modifyRequest);
+			resp.sendRedirect("main.jsp");
+			return null;
+		} catch (UserNotFountException e) {
+			resp.sendError(HttpServletResponse.SC_NOT_FOUND);
+			return null;
 		}
-		resp.sendRedirect("main.jsp");
-		return null;
 
 	}
 

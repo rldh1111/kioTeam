@@ -5,11 +5,11 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import common.exception.UserNotFountException;
-import common.handler.CommandHandler;
-import user.service.DeleteService;
+import common.exception.UserNotFoundException;
+import user.model.User;
+import user.service.UserViewSerivice;
 
-public class DeleteHandler implements CommandHandler {
+public class UserViewHandler {
 	private static final String FORM_VIEW = "#"; // 어드민 페이지로 이동
 
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
@@ -23,20 +23,20 @@ public class DeleteHandler implements CommandHandler {
 		}
 	}
 
-	private String processSubmit(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+	private String processSubmit(HttpServletRequest req, HttpServletResponse resp) {
+		return null;
+	}
+
+	private String processForm(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		try {
+			UserViewSerivice userViewSerivice = UserViewSerivice.getInstance();
 			int userId = Integer.parseInt(req.getParameter("userId"));
-			DeleteService deleteService = DeleteService.getInstance();
-			deleteService.delete(userId);
-			return FORM_VIEW;
-		} catch (UserNotFountException e) {
+			User user = userViewSerivice.selectUser(userId);
+			req.setAttribute("user", user);
+		} catch (UserNotFoundException e) {
 			resp.sendError(HttpServletResponse.SC_NOT_FOUND);
 			return null;
 		}
-	}
-
-	private String processForm(HttpServletRequest req, HttpServletResponse resp) {
 		return FORM_VIEW;
 	}
-
 }
