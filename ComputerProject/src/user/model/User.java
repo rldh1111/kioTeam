@@ -44,6 +44,10 @@ public class User {
 		this.question = question;
 		this.answer = answer;
 	}
+	public User(String loginId) {
+		this.loginId = loginId;
+		
+	}
 
 	public int getUserId() {
 		return userId;
