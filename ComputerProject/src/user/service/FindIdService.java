@@ -23,8 +23,7 @@ public class FindIdService {
 	public User FindId(String name, String phone, String email, String question, String answer) throws SQLException {
 		UserDao userDao = UserDao.getInstance();
 		try (Connection conn = ConnectionProvider.getConnection()) {
-			User user = userDao.selectIdByName(conn, name, phone, email,
-					question, answer);
+			User user = userDao.selectIdByName(conn, name, phone, email,question, answer);
 			
 			return user;
 		} catch (Exception e) {

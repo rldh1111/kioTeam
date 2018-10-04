@@ -46,6 +46,7 @@ public class User {
 	}
 	public User(String loginId) {
 		this.loginId = loginId;
+		
 	}
 
 	public int getUserId() {

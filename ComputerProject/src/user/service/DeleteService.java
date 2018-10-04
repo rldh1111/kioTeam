@@ -4,32 +4,33 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import common.exception.UserNotFoundException;
+import common.exception.UserNotFountException;
 import jdbc.Connection.ConnectionProvider;
 import user.dao.UserDao;
 import user.model.User;
 
-public class ModifyService {
-	private static ModifyService instance = new ModifyService();
+public class DeleteService {
+	private static DeleteService instance = new DeleteService();
 
-	public static ModifyService getInstance() {
+	public static DeleteService getInstance() {
 		return instance;
 	}
 
-	private ModifyService() {
+	private DeleteService() {
 	}
 
-	public void modify(ModifyRequest mr) {
-		UserDao userDao = UserDao.getInstance();
+	public void delete(int userId) {
 		try (Connection conn = ConnectionProvider.getConnection()) {
+			UserDao userDao = UserDao.getInstance();
 			try {
 				conn.setAutoCommit(false);
-				User user = userDao.SelectByUserId(conn, mr.getUserId());
+				User user = userDao.SelectByUserId(conn, userId);
 				if (user == null) {
-					throw new UserNotFoundException("유저가 없음");
+					throw new UserNotFoundException("없는 유저입니다");
 				}
-				userDao.update(conn, mr);
+				userDao.delete(conn, userId);
 				conn.commit();
-			} catch (UserNotFoundException e) {
+			} catch (UserNotFountException e) {
 				conn.rollback();
 				throw e;
 			} catch (SQLException e) {
@@ -40,7 +41,5 @@ public class ModifyService {
 		} catch (SQLException e) {
 			throw new RuntimeException();
 		}
-
 	}
-
 }

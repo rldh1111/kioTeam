@@ -14,7 +14,6 @@ public class LogoutHandler implements CommandHandler {
 		if (session != null) {
 			session.invalidate();
 		}
-		
 		resp.sendRedirect("main.jsp");
 		return null;
 	}
