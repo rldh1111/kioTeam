@@ -19,16 +19,16 @@ public class RegisterService {
 	private RegisterService() {
 	}
 
-	public void insert(String name, String productType, int price, String explanation) {
+	public void insert(RegisterRequest rr) {
 		ProductDao productDao = ProductDao.getInstance();
 		try (Connection conn = ConnectionProvider.getConnection()) {
 			try {
 				conn.setAutoCommit(false);
-				Product product = productDao.selectName(conn, name);
+				Product product = productDao.selectName(conn, rr.getName());
 				if (product != null) {
 					throw new DuplicatieException("같은 제품이 있습니다.");
 				}
-				productDao.insert(conn, name, productType, price, explanation);
+				productDao.insert(conn,rr.getName() , rr.getProductType(), rr.getPrice(), rr.getExplanation());
 				conn.commit();
 			} catch (DuplicatieException e) {
 				conn.rollback();

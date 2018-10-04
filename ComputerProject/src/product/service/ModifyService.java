@@ -3,6 +3,7 @@ package product.service;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import common.exception.DuplicatieException;
 import common.exception.ProductNotFoundException;
 import jdbc.Connection.ConnectionProvider;
 import product.dao.ProductDao;
@@ -28,9 +29,16 @@ public class ModifyService {
 				if (product == null) {
 					throw new ProductNotFoundException("없는 제품입니다");
 				}
+				product = productDao.selectName(conn, mr.getName());
+				if (product != null) {
+					throw new DuplicatieException("이름이 중복됩니다");
+				}
 				productDao.update(conn, mr.getProductId(), mr.getName(), mr.getProductType(), mr.getPrice(),
 						mr.getExplanation());
 				conn.commit();
+			} catch (DuplicatieException e) {
+				conn.rollback();
+				throw e;
 			} catch (ProductNotFoundException e) {
 				conn.rollback();
 				throw e;
