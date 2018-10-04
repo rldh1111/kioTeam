@@ -16,6 +16,7 @@
 		font-size: 10pt;
 		font-weight: 400;
 		color: #8d8d8d;
+		min-width: 1400px;
 	}
 	
 	h1, h2, h3{
@@ -38,53 +39,10 @@
 	a:hover{text-decoration: none;}
 
 	.container{
-		border: 1px solid black;
 		margin: 0px auto;
 		width: 1400px;
 		text-align: center;
 	}
-/*********************************************************************************/
-/* Social Icon Styles                                                            */
-/*********************************************************************************/
-
-	ul.contact{
-		margin: 0;
-		padding: 2em 0em 0em 0em;
-		list-style: none;
-	}
-	
-	ul.contact li{
-		display: inline-block;
-		padding: 0em 0.10em;
-		font-size: 1em;
-	}
-	
-	ul.contact li span{
-		display: none;
-		margin: 0;
-		padding: 0;
-	}
-	
-	ul.contact li a{
-		color: #FFF;
-	}
-	
-	ul.contact li a:before{
-		display: inline-block;
-		width: 30px;
-		height: 30px;
-		background: #3f3f3f;
-		line-height: 30px;
-		text-align: center;
-		color: #FFFFFF;
-	}
-	
-	ul.contact li a.icon-twitter:before { background: #2DAAE4; }
-	ul.contact li a.icon-facebook:before { background: #39599F; }
-	ul.contact li a.icon-dribbble:before { background: #C4376B;	}
-	ul.contact li a.icon-tumblr:before { background: #31516A; }
-	ul.contact li a.icon-rss:before { background: #F2600B; }
-
 /*********************************************************************************/
 /* Header                                                                        */
 /*********************************************************************************/
@@ -125,7 +83,7 @@
 		line-height: 90px;}
 	#modify{
 		float: left;
-		margin-left: 210px;
+		margin-left: 250px;
 	}
 	#logout{
 		float: left;
@@ -415,7 +373,7 @@
 		</c:if>
 		<c:if test="${user != null }">
 			<div id="modify">
-				<a href="${pageContext.request.contextPath }/modify?userId=${user.userId}" class="modify">회원정보수정</a>
+				<a href="${pageContext.request.contextPath }/modify?userId=${user.userId}" class="modify">회원정보</a>
 			</div>
 			<div id="logout">
 				<a href="logout" class="logout">로그아웃</a>

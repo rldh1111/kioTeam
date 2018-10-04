@@ -113,6 +113,11 @@ input[type=submit]:hover {
 	width: 100%;
 	border: 1px solid #cccccc;
 }
+
+span {
+	float: right;
+	text-decoration: none;
+}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>기오를 드립니다 기오PC -- 회원수정</title>
@@ -141,7 +146,13 @@ input[type=submit]:hover {
 			</select></label> 
 			<label for="answer"><b>답변</b><input type="text" name="answer" value="${modReq.answer }" required></label>  
 			<input type="submit" value="수정하기">
-
+		</div>
+		<div class="container1" style="background-color: #f1f1f1">
+			<span class="psw">
+				<a href="findID.jsp">아이디 찾기 |</a> 
+				<a href="">비밀번호 찾기 | </a>
+				<a>회원가입</a> 
+			</span>
 		</div>
 	</form>
 </body>
