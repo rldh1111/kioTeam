@@ -28,15 +28,73 @@
 	
 </script>
 <style>
+	html, body{height: 100%;}
+	
+	body{
+		margin: 0px;
+		padding: 0px;
+		background: #EFEFEF url(images/bg01.png) repeat;
+		font-size: 10pt;
+		font-weight: 400;
+		color: black;
+	}
+	
+	p, ol, ul{margin-top: 0;}
+	
+	a:hover{text-decoration: none;}
+
+	.container{
+		width: 800px;
+		margin: 0px auto;
+	}
+	#top {
+		padding: 50px 0px;
+		text-decoration: none;
+		height: 0px;
+		margin-bottom: 30px;
+	}
+	
+	#logo h1,a{
+		text-decoration: none;
+		line-height: 80px;
+		margin: 0;
+		padding: 0;
+		color: #525252;
+		float: left;
+		}
+	#join h1{
+		float: left;
+	    margin-left: 200px;
+	    line-height: 10px;
+	    font-size: 43px;
+	    color: black;
+	}
+	#login{
+		float: left;
+		margin-left:210px;
+		height: 20px;
+	}
+	#basket{
+		float: left;
+		margin-left:10px;
+	}
+	#login a, #basket a{
+		text-decoration: none;
+		line-height: 80px;}
+	#from b{
+		font-size: 15px;
+    	margin-left: 10px;
+	}
+/* ----------------------------------------------------------------- */
 body {
 	font-family: Arial, Helvetica, sans-serif;
 	width: 50%;
 	margin-left: 22%;
-	margin-top: 1%;
+	margin-top: 0%;
 }
 
 form {
-	border: 3px solid #669999;
+	border: 3px solid #525252;
 }
 
 input[type=text], input[type=password] {
@@ -66,7 +124,7 @@ input[type=tel]{
 
 
 input[type=submit] {
-	background-color: #00ccff;
+	background-color: #747474;
 	color: white;
 	padding: 14px 20px;
 	margin: 8px 0;
@@ -132,23 +190,31 @@ img.avatar {
 	width: 40%;
 	border-radius: 50%;
 }
-
-.container {
-	padding: 16px;
-}
-
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>기오를 드립니다 기오PC -- 회원 가입</title>
 </head>
 <body>
-
-		<h1 style="text-align: center">회원가입</h1>
-
-	<form action="join" onsubmit="return check();" method="post" name="form">
-		<div class="container">
+	<div id="top" class="container">
+		<div id="logo">
+			<h1><a href="#">기오피씨</a></h1>
+		</div>
+		<div id="join">
+			<h1>회원가입</h1>
+		</div>
+		<c:if test="${user == null }">
+			<div id="login">
+				<a href="login" class="login">로그인</a>
+			</div>
+		</c:if>
+		<div id="basket">
+			<a href="join" class="basket">장바구니</a>
+		</div>
+	</div>
+	<div class="container">
+		<form action="join" onsubmit="return check();" method="post" name="form" id="from">
 			<input type="hidden" name="userType" value="B">	
-			
+
 			<label for="loginId">
 				<b>아이디</b>
 				<input type="text" placeholder="아이디" name="loginId" id="loginId">
@@ -157,7 +223,6 @@ img.avatar {
 			<label for="password">
 				<b>비밀번호</b>
 				<input type="password" placeholder="비빌번호" name="password">
-			
 			</label> 
 			
 			<label for="confirmPassword">
@@ -201,8 +266,7 @@ img.avatar {
 				<script>alert("아이디가 중복되었습니다.");</script>
 			</c:if>
 			<input type="submit" value="회원가입">
-			<input type="button" onclick="mainGo();" value="쇼핑하기">
-		</div>
-	</form>	
+		</form>	
+	</div>
 </body>
 </html>

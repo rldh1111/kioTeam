@@ -83,14 +83,10 @@ span {
 <title>기오를 드립니다 기오PC -- 로그인</title>
 </head>
 <body>
-	<center><h1>로그인</h1></center>
 	<form action="login" onsubmit="return check();" method="post" name="form">
 		<div class="container">
-			<label for="uname"><b>아이디</b></label> <input type="text"
-				placeholder="아이디" name="loginId" id=""loginId""> <label
-				for="psw"><b>비밀번호</b></label> <input type="password"
-				placeholder="비빌번호" name="password">
-
+			<label for="uname"><b>아이디</b><input type="text" placeholder="아이디" name="loginId" id="loginId"></label>
+			<label for="psw"><b>비밀번호</b><input type="password" placeholder="비빌번호" name="password"></label> 
 			<input type="submit" value="로그인">
 			<c:if test="${errors.idOrPwNotMatch }">
 				<script>
