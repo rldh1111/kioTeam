@@ -44,7 +44,7 @@
 	a:hover{text-decoration: none;}
 
 	.container{
-		width: 800px;
+		width: 700px;
 		margin: 0px auto;
 	}
 	#top {
@@ -64,14 +64,14 @@
 		}
 	#join h1{
 		float: left;
-	    margin-left: 200px;
+	    margin-left: 160px;
 	    line-height: 10px;
 	    font-size: 43px;
 	    color: black;
 	}
 	#login{
 		float: left;
-		margin-left:210px;
+		margin-left:150px;
 		height: 20px;
 	}
 	#basket{
@@ -88,13 +88,14 @@
 /* ----------------------------------------------------------------- */
 body {
 	font-family: Arial, Helvetica, sans-serif;
-	width: 50%;
-	margin-left: 22%;
+	width: 700px;
+	margin: auto;
 	margin-top: 0%;
 }
 
 form {
 	border: 3px solid #525252;
+	width: 700px;
 }
 
 input[type=text], input[type=password] {
@@ -174,25 +175,9 @@ input[type=button] {
 input[type=submit]:hover {
 	opacity: 0.8;
 }
-
-.cancelbtn {
-	width: auto;
-	padding: 10px 18px;
-	background-color: #f33236;
-}
-
-.imgcontainer {
-	text-align: center;
-	margin: 24px 0 12px 0;
-}
-
-img.avatar {
-	width: 40%;
-	border-radius: 50%;
-}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>기오를 드립니다 기오PC -- 회원 가입</title>
+<title>회원 가입</title>
 </head>
 <body>
 	<div id="top" class="container">
