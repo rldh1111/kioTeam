@@ -1,12 +1,12 @@
-package user.service;
+package product.service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import common.exception.UserNotFoundException;
+import common.exception.ProductNotFoundException;
 import jdbc.Connection.ConnectionProvider;
-import user.dao.UserDao;
-import user.model.User;
+import product.dao.ProductDao;
+import product.model.Product;
 
 public class ModifyService {
 	private static ModifyService instance = new ModifyService();
@@ -16,20 +16,22 @@ public class ModifyService {
 	}
 
 	private ModifyService() {
+
 	}
 
 	public void modify(ModifyRequest mr) {
-		UserDao userDao = UserDao.getInstance();
+		ProductDao productDao = ProductDao.getInstance();
 		try (Connection conn = ConnectionProvider.getConnection()) {
 			try {
 				conn.setAutoCommit(false);
-				User user = userDao.SelectByUserId(conn, mr.getUserId());
-				if (user == null) {
-					throw new UserNotFoundException("유저가 없음");
+				Product product = productDao.selectProductId(conn, mr.getProductId());
+				if (product == null) {
+					throw new ProductNotFoundException("없는 제품입니다");
 				}
-				userDao.update(conn, mr);
+				productDao.update(conn, mr.getProductId(), mr.getName(), mr.getProductType(), mr.getPrice(),
+						mr.getExplanation());
 				conn.commit();
-			} catch (UserNotFoundException e) {
+			} catch (ProductNotFoundException e) {
 				conn.rollback();
 				throw e;
 			} catch (SQLException e) {
@@ -40,7 +42,5 @@ public class ModifyService {
 		} catch (SQLException e) {
 			throw new RuntimeException();
 		}
-
 	}
-
 }

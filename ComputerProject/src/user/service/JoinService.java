@@ -22,6 +22,7 @@ public class JoinService {
 	public void join(JoinRequest joinReq) { // 아이디가 중복되는지 확인하고 아니면 insert로 user객체를 보내줌
 		UserDao userDao = UserDao.getInstance();
 		try (Connection conn = ConnectionProvider.getConnection()) {
+
 			try {
 				conn.setAutoCommit(false);
 				User user = userDao.selectByLoginId(conn, joinReq.getLoginId());

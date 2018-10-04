@@ -30,8 +30,8 @@ public class ModfiyHandler implements CommandHandler {
 	}
 
 	private String processSubmit(HttpServletRequest req, HttpServletResponse resp) throws SQLException, IOException {
-		User user = (User) req.getSession().getAttribute("user");
-		ModifyRequest modifyRequest = new ModifyRequest(user.getUserId(), req.getParameter("name").trim(),
+		int userId = Integer.parseInt(req.getParameter("userId"));
+		ModifyRequest modifyRequest = new ModifyRequest(userId, req.getParameter("name").trim(),
 				req.getParameter("password").trim(), req.getParameter("address").trim(),
 				req.getParameter("email").trim(), req.getParameter("phone").trim(), req.getParameter("question").trim(),
 				req.getParameter("answer").trim());

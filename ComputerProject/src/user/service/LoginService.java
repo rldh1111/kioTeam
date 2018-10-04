@@ -18,7 +18,7 @@ public class LoginService {
 	private LoginService() {
 	}
 
-	public User login(String loginId, String password)  {
+	public User login(String loginId, String password) {
 		UserDao userDao = UserDao.getInstance();
 		try (Connection conn = ConnectionProvider.getConnection()) {
 			User user = userDao.selectByLoginId(conn, loginId);
@@ -29,7 +29,9 @@ public class LoginService {
 				throw new LoginFailException("비밀번호가 틀림");
 			}
 			return user;
-		}catch(SQLException e) {
+		} catch (LoginFailException e) {
+			throw e;
+		} catch (SQLException e) {
 			throw new RuntimeException();
 		}
 
