@@ -50,7 +50,6 @@ public class ModfiyHandler implements CommandHandler {
 
 	private String processForm(HttpServletRequest req, HttpServletResponse resp) throws IOException, SQLException {
 		try {
-			System.out.println();
 			int userId = Integer.parseInt(req.getParameter("userId"));
 			ReadUserSerivce readUserSerivce = ReadUserSerivce.getInstance();
 			User user = readUserSerivce.readUser(userId);

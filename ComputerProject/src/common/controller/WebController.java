@@ -34,7 +34,6 @@ public class WebController extends HttpServlet {
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-			
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {

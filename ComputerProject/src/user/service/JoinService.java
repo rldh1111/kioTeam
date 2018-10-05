@@ -17,7 +17,6 @@ public class JoinService {
 	}
 
 	private JoinService() {
-		System.out.println();
 	}
 
 	public void join(JoinRequest joinReq) { // 아이디가 중복되는지 확인하고 아니면 insert로 user객체를 보내줌

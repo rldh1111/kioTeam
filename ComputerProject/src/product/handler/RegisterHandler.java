@@ -17,7 +17,6 @@ public class RegisterHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		System.out.println();
 		if (req.getMethod().equalsIgnoreCase("GET")) {
 			return processForm(req, resp);
 		} else if (req.getMethod().equalsIgnoreCase("POST")) {

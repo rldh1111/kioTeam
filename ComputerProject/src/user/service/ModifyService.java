@@ -16,7 +16,6 @@ public class ModifyService {
 	}
 
 	private ModifyService() {
-		System.out.println();
 	}
 
 	public void modify(ModifyRequest mr) {

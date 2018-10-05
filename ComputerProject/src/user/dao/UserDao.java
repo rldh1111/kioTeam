@@ -23,7 +23,6 @@ public class UserDao {
 	}
 
 	public int selectCount(Connection conn) throws SQLException {
-		System.out.println();
 		String sql = "select count(*) from user";
 		try (Statement st = conn.createStatement()) {
 			try (ResultSet rs = st.executeQuery(sql)) {
