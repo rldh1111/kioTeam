@@ -31,6 +31,7 @@ public class LoginHandler implements CommandHandler {
 	}
 
 	private String processSubmit(HttpServletRequest req, HttpServletResponse resp) throws SQLException, IOException {
+		System.out.println();
 		LoginService loginService = LoginService.getInstance();
 		String loginId = req.getParameter("loginId").trim();
 		String password = req.getParameter("password").trim();

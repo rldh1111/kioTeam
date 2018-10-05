@@ -3,8 +3,10 @@ package user.service;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import jdbc.Connection.ConnectionProvider;
+
 import user.dao.UserDao;
 import user.model.User;
 
@@ -18,13 +20,18 @@ public class UserListService {
 	private UserListService() {
 	}
 
-	public ArrayList<User> selectList() {
+	private int size = 10;
+	private int blockSize = 5;
+
+	public UserPage UserList(int pageNum) {
 		try (Connection conn = ConnectionProvider.getConnection()) {
 			UserDao userDao = UserDao.getInstance();
-			ArrayList<User> users = userDao.selectAll(conn);
-			return users;
+			int total = userDao.selectCount(conn);
+			List<User> users = userDao.selectUser(conn, (pageNum - 1) * size, size);
+			return new UserPage(users, pageNum, total, size, blockSize);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
+
 	}
 }

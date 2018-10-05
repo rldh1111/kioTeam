@@ -9,13 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import common.exception.DuplicatieException;
 import common.exception.ProductNotFoundException;
+import common.handler.CommandHandler;
 import product.service.ModifyRequest;
 import product.service.ModifyService;
 
-public class ModifyHandler {
+public class ModifyHandler implements CommandHandler {
 	private static final String FORM_VIEW = "#"; // 어드민 페이지로 이동
 
+	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+		System.out.println();
 		if (req.getMethod().equalsIgnoreCase("GET")) {
 			return processForm(req, resp);
 		} else if (req.getMethod().equalsIgnoreCase("POST")) {

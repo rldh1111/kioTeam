@@ -17,6 +17,7 @@ public class DeleteService {
 	}
 
 	private DeleteService() {
+		System.out.println();
 	}
 
 	public void delete(int userId) {

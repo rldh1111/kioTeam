@@ -24,6 +24,7 @@ public class UserViewSerivice {
 			UserDao userDao = UserDao.getInstance();
 			User user = userDao.SelectByUserId(conn, userId);
 			if (user == null) {
+				System.out.println();
 				throw new UserNotFoundException("유저가 없음");
 			}
 			return user;

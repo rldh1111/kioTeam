@@ -12,7 +12,6 @@ public class ModifyRequest {
 
 	public ModifyRequest(int userId, String name, String password, String address, String email, String phone,
 			String question, String answer) {
-		super();
 		this.userId = userId;
 		this.name = name;
 		this.password = password;

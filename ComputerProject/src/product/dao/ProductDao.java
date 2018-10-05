@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import com.mysql.cj.protocol.Resultset;
+
 import common.exception.ProductNotFoundException;
 import product.model.Product;
 import user.service.LoginService;
@@ -20,7 +22,7 @@ public class ProductDao {
 
 	private ProductDao() {
 	}
-	
+
 	public Product selectProductId(Connection conn, int productId) throws SQLException {
 		String sql = "select * from product where productId = ?";
 		try (PreparedStatement pst = conn.prepareStatement(sql)) {
@@ -34,7 +36,23 @@ public class ProductDao {
 			return product;
 		}
 	}
-
+	public ArrayList<Product> selectType(Connection conn, String name, int startRow, int size) throws SQLException {
+		String sql = "select * from product where name = ? order by productId limit ?, ?";
+		System.out.println();
+		try (PreparedStatement pst = conn.prepareStatement(sql)) {
+			pst.setString(1, name);
+			pst.setInt(2, startRow);
+			pst.setInt(3, size);
+			try (ResultSet rs = pst.executeQuery()) {
+				ArrayList<Product> products = new ArrayList<>();
+				while (rs.next()) {
+					products.add(makeProduct(rs));
+				}
+				return products;
+			}
+		}
+	}
+	
 	public Product selectName(Connection conn, String name) throws SQLException {
 		String sql = "select * from product where name = ?";
 		try (PreparedStatement pst = conn.prepareStatement(sql)) {
@@ -49,23 +67,38 @@ public class ProductDao {
 		}
 	}
 
-	public ArrayList<Product> selectAll(Connection conn) throws SQLException { // 모두 가져오기
-		ArrayList<Product> products = new ArrayList<Product>();
-		String sql = "select * from product";
-		try (PreparedStatement pst = conn.prepareStatement(sql); ResultSet rs = pst.executeQuery()) {
-			while (rs.next()) {
-				products.add(makeProduct(rs));
+	public int selectCount(Connection conn) throws SQLException {
+		String sql = "select count(*) from product";
+		try (Statement st = conn.createStatement()) {
+			try (ResultSet rs = st.executeQuery(sql)) {
+				if (rs.next()) {
+					return rs.getInt(1);
+				}
+			}
+			return 0;
+		}
+	}
+
+	public ArrayList<Product> selectProudct(Connection conn, int startRow, int size) throws SQLException {
+		String sql = "select * from product order by productId limit ?, ?";
+		try (PreparedStatement pst = conn.prepareStatement(sql)) {
+			pst.setInt(1, startRow);
+			pst.setInt(2, size);
+			try (ResultSet rs = pst.executeQuery()) {
+				ArrayList<Product> products = new ArrayList<>();
+				while (rs.next()) {
+					products.add(makeProduct(rs));
+				}
+				return products;
 			}
 		}
-		return products;
 	}
 
 	public ArrayList<Product> select(Connection conn, String search) throws SQLException { // 검색해서 가져오기
-		String sql = "select * from product where name or productType or explanation like %?%";
+		String sql = "select * from product where name like '%"+ search +"%'";
 		ArrayList<Product> products = new ArrayList<Product>();
-		try (PreparedStatement pst = conn.prepareStatement(sql)) {
-			pst.setString(1, search);
-			try (ResultSet rs = pst.executeQuery()) {
+		try (Statement pst = conn.createStatement()) {
+			try (ResultSet rs = pst.executeQuery(sql)) {
 				while (rs.next()) {
 					products.add(makeProduct(rs));
 				}

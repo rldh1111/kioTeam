@@ -16,6 +16,8 @@ public class ReadUserSerivce {
 	}
 
 	private ReadUserSerivce() {
+		System.out.println();
+		System.out.println();
 	}
 
 	public User readUser(int userId) {

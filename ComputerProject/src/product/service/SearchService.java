@@ -21,6 +21,7 @@ public class SearchService {
 	}
 
 	public ArrayList<Product> search(String search) throws SQLException {
+		System.out.println();
 		ProductDao productDao = ProductDao.getInstance();
 		try (Connection conn = ConnectionProvider.getConnection()) {
 			ArrayList<Product> products = productDao.select(conn, search);

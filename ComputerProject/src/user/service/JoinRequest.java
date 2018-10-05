@@ -13,7 +13,6 @@ public class JoinRequest {
 
 	public JoinRequest(String userType, String loginId, String name, String password, String address, String email,
 			String phone, String question, String answer) {
-		super();
 		this.userType = userType;
 		this.loginId = loginId;
 		this.name = name;

@@ -8,7 +8,6 @@ public class ModifyRequest {
 	private String explanation;
 
 	public ModifyRequest(int productId, String name, String productType, int price, String explanation) {
-		super();
 		this.productId = productId;
 		this.name = name;
 		this.productType = productType;
