@@ -22,7 +22,7 @@
 	}
 </script>
 <style>
-html, body{height: 100%;}
+	html, body{height: 100%;}
 	
 	body{
 		margin: 0px;
@@ -149,9 +149,8 @@ span {
 		</div>
 		<div class="container1" style="background-color: #f1f1f1">
 			<span class="psw">
-				<a href="findID.jsp">아이디 찾기 |</a> 
-				<a href="">비밀번호 찾기 | </a>
-				<a>회원가입</a> 
+				<a href="findID.jsp">아이디 찾기 |</a>&nbsp;
+				<a href="findPw.jsp">비밀번호 찾기</a> 
 			</span>
 		</div>
 	</form>

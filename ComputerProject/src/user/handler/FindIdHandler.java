@@ -15,7 +15,7 @@ import user.service.FindIdService;
 //Id 찾는 handler
 public class FindIdHandler implements CommandHandler {
 
-	private static final String FORM_VIEW = "/findId.jsp";
+	private static final String FORM_VIEW = "WEB-INF/view/findId.jsp";
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		

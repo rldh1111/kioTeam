@@ -38,6 +38,7 @@
 		<url-pattern>/modify</url-pattern>
 		<url-pattern>/join</url-pattern>
 		<url-pattern>/logout</url-pattern>
+		<url-pattern>/findId</url-pattern>
 	</servlet-mapping>
 
 
