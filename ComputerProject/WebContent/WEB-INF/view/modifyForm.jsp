@@ -22,7 +22,7 @@
 	}
 </script>
 <style>
-html, body{height: 100%;}
+	html, body{height: 100%;}
 	
 	body{
 		margin: 0px;
@@ -125,7 +125,7 @@ span {
 <body>
 	<div id="top" class="container">
 		<div id="logo">
-			<h1><a href="#">기오피씨</a></h1>
+			<h1><a href="main.jsp">기오피씨</a></h1>
 		</div>
 		<div id="modify">
 			<h1>정보수정</h1>
@@ -149,9 +149,8 @@ span {
 		</div>
 		<div class="container1" style="background-color: #f1f1f1">
 			<span class="psw">
-				<a href="findID.jsp">아이디 찾기 |</a> 
-				<a href="">비밀번호 찾기 | </a>
-				<a>회원가입</a> 
+				<a href="findId">아이디 찾기 |</a>
+				<a href="findPw">비밀번호 찾기</a> 
 			</span>
 		</div>
 	</form>

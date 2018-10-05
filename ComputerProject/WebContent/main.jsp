@@ -395,7 +395,7 @@
 ${ctxPath = pageContext.request.contextPath }
 	<div id="top" class="container">
 		<div id="logo">
-			<h1><a href="#">기오피씨</a></h1>
+			<h1><a href="main.jsp">기오피씨</a></h1>
 		</div>
 		<div id="search">
 			<form action="search">

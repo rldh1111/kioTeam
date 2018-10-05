@@ -37,6 +37,7 @@
 		<url-pattern>/modify</url-pattern>
 		<url-pattern>/join</url-pattern>
 		<url-pattern>/logout</url-pattern>
+<<<<<<< HEAD
 		<url-pattern>/search</url-pattern>
 		<url-pattern>/admin/productList</url-pattern>
 		<url-pattern>/admin/userList</url-pattern>
@@ -44,5 +45,9 @@
 		<url-pattern>/admin/userModify</url-pattern>
 		<url-pattern>/admin/productDelete</url-pattern>
 		<url-pattern>/admin/productModify</url-pattern>
+=======
+		<url-pattern>/findId</url-pattern>
+		<url-pattern>/findPw</url-pattern>
+>>>>>>> branch 'master' of https://github.com/rldh1111/kioTeam.git
 	</servlet-mapping>
 </web-app>
