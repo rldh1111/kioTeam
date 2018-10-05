@@ -8,12 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import common.exception.DuplicatieException;
+import common.handler.CommandHandler;
 import product.service.RegisterRequest;
 import product.service.RegisterService;
 
-public class RegisterHandler {
+public class RegisterHandler implements CommandHandler {
 	private static final String FORM_VIEW = "#"; // 어드민 페이지로 이동
 
+	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		if (req.getMethod().equalsIgnoreCase("GET")) {
 			return processForm(req, resp);

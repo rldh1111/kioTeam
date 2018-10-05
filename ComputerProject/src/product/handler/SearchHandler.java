@@ -8,12 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import common.exception.ProductNotFoundException;
+import common.handler.CommandHandler;
 import product.model.Product;
 import product.service.SearchService;
 
-public class SearchHandler {
+public class SearchHandler implements CommandHandler {
 	private static final String FORM_VIEW = "/WEB-INF/view/searchList.jsp"; // 어드민 페이지로 이동
 
+	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		if (req.getMethod().equalsIgnoreCase("GET")) {
 			return processForm(req, resp);

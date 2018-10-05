@@ -3,11 +3,13 @@ package product.handler;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import common.handler.CommandHandler;
 import product.service.ProductViewService;
 
-public class ProductViewHandler {
+public class ProductViewHandler implements CommandHandler {
 	private static final String FORM_VIEW = "#"; // 어드민 페이지로 이동
 
+	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		if (req.getMethod().equalsIgnoreCase("GET")) {
 			return processForm(req, resp);

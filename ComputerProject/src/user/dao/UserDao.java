@@ -4,8 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
+import product.model.Product;
 import user.model.User;
 import user.service.ModifyRequest;
 
@@ -19,16 +22,30 @@ public class UserDao {
 		return instance;
 	}
 
-	public ArrayList<User> selectAll(Connection conn) throws SQLException {
-		String sql = "select * from user";
+	public int selectCount(Connection conn) throws SQLException {
+		String sql = "select count(*) from user";
+		try (Statement st = conn.createStatement()) {
+			try (ResultSet rs = st.executeQuery(sql)) {
+				if (rs.next()) {
+					return rs.getInt(1);
+				}
+			}
+			return 0;
+		}
+	}
+
+	public List<User> selectUser(Connection conn, int startRow, int size) throws SQLException {
+		String sql = "select * from user order by userId limit ?, ?";
 		try (PreparedStatement pst = conn.prepareStatement(sql)) {
-			ArrayList<User> users = new ArrayList<User>();
+			pst.setInt(1, startRow);
+			pst.setInt(2, size);
 			try (ResultSet rs = pst.executeQuery()) {
+				List<User> users = new ArrayList<>();
 				while (rs.next()) {
 					users.add(makeUser(rs));
 				}
+				return users;
 			}
-			return users;
 		}
 	}
 

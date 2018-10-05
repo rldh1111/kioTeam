@@ -3,9 +3,12 @@ package product.handler;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class DeleteHandler {
+import common.handler.CommandHandler;
+
+public class DeleteHandler implements CommandHandler {
 	private static final String FORM_VIEW = "#"; // 어드민 페이지로 이동
 
+	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		if (req.getMethod().equalsIgnoreCase("GET")) {
 			return processForm(req, resp);
