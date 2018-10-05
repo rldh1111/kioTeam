@@ -69,7 +69,7 @@ public class ProductDao {
 			pst.setInt(1, startRow);
 			pst.setInt(2, size);
 			try (ResultSet rs = pst.executeQuery()) {
-				ArrayList<Product> products = null;
+				ArrayList<Product> products = new ArrayList<>();
 				while (rs.next()) {
 					products.add(makeProduct(rs));
 				}
@@ -79,11 +79,10 @@ public class ProductDao {
 	}
 
 	public ArrayList<Product> select(Connection conn, String search) throws SQLException { // 검색해서 가져오기
-		String sql = "select * from product where name or productType or explanation like %?%";
+		String sql = "select * from product where name like '%"+ search +"%'";
 		ArrayList<Product> products = new ArrayList<Product>();
-		try (PreparedStatement pst = conn.prepareStatement(sql)) {
-			pst.setString(1, search);
-			try (ResultSet rs = pst.executeQuery()) {
+		try (Statement pst = conn.createStatement()) {
+			try (ResultSet rs = pst.executeQuery(sql)) {
 				while (rs.next()) {
 					products.add(makeProduct(rs));
 				}

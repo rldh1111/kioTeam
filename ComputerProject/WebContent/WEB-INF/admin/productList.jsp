@@ -15,7 +15,6 @@
 			<td>name</td>
 			<td>productType</td>
 			<td>price</td>
-			<td>password</td>
 			<td>wdate</td>
 			<td>udate</td>
 		</tr>
@@ -26,7 +25,7 @@
 				<td>${product.name }</td>
 				<td>${product.productType }</td>
 				<td>${product.price }</td>
-				<td>${product.password }</td>
+				<td>${product.explanation }</td>
 				<td>${product.wdate }</td>
 				<td>${product.udate }</td>
 				<td><button onclick="location.href='productDelete?userId=${product.productId}'">삭제</button>

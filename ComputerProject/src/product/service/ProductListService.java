@@ -26,7 +26,7 @@ public class ProductListService {
 		try (Connection conn = ConnectionProvider.getConnection()) {
 			ProductDao productDao = ProductDao.getInstance();
 			int total = productDao.selectCount(conn);
-			ArrayList<Product> products = productDao.selectProudct(conn, (pageNum - 1), total);
+			ArrayList<Product> products = productDao.selectProudct(conn, (pageNum - 1) * size, size);
 			return new ProductPage(products, pageNum, total, size, blockSize);
 		} catch (SQLException e) {
 			throw new RuntimeException(e);

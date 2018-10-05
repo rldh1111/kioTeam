@@ -398,10 +398,10 @@ ${ctxPath = pageContext.request.contextPath }
 			<h1><a href="#">기오피씨</a></h1>
 		</div>
 		<div id="search">
-			<form>
+			<form action="search">
 				<table>
 					<tr>
-						<td><input type="text" name="searchProduct" id="text"></td>
+						<td><input type="text" name="search" id="text"></td>
 						<td><input type="submit" value="검색" id="submit"></td>
 					</tr>
 				</table>
