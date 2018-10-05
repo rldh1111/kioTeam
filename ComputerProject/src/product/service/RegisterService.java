@@ -20,7 +20,6 @@ public class RegisterService {
 	}
 
 	public void insert(RegisterRequest rr) {
-		System.out.println();
 		ProductDao productDao = ProductDao.getInstance();
 		try (Connection conn = ConnectionProvider.getConnection()) {
 			try {

@@ -21,7 +21,6 @@ public class ModifyService {
 	}
 
 	public void modify(ModifyRequest mr) {
-		System.out.println();
 		ProductDao productDao = ProductDao.getInstance();
 		try (Connection conn = ConnectionProvider.getConnection()) {
 			try {

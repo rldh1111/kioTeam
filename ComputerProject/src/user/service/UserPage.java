@@ -13,7 +13,7 @@ public class UserPage {
 	}
 
 	private UserPage() {
-	System.out.println();
+	
 	}
 
 	private List<User> users;

@@ -38,7 +38,6 @@ public class ProductDao {
 	}
 	public ArrayList<Product> selectType(Connection conn, String name, int startRow, int size) throws SQLException {
 		String sql = "select * from product where name = ? order by productId limit ?, ?";
-		System.out.println();
 		try (PreparedStatement pst = conn.prepareStatement(sql)) {
 			pst.setString(1, name);
 			pst.setInt(2, startRow);

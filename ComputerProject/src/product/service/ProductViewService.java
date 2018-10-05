@@ -18,7 +18,7 @@ public class ProductViewService {
 	}
 
 	private ProductViewService() {
-System.out.println();
+
 	}
 
 	public Product selectProduct(int productId) {

@@ -13,7 +13,6 @@ public class UserListHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		System.out.println();
 		UserListService userListService = UserListService.getInstance();
 		String pageNum = req.getParameter("pageNum");
 		int pageNo = 1;

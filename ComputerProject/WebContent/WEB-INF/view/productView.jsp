@@ -42,8 +42,6 @@
 		<c:if test="${productPage.hasProducts() }">
 			상품이 존재하지 않습니다
 		</c:if>
-
-	<div></div>
 	</table>
 </body>
 </html>
