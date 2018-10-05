@@ -20,21 +20,57 @@
 	
 	function checkloginId(){
 		
-		
 	}
 </script>
 <style>
+html, body{height: 100%;}
+	
+	body{
+		margin: 0px;
+		padding: 0px;
+		background: #EFEFEF url(images/bg01.png) repeat;
+		font-size: 10pt;
+		font-weight: 400;
+		color: black;
+	}
+	
+	p, ol, ul{margin-top: 0;}
+	
+	a:hover{text-decoration: none;}
+
+	.container{
+		width: 690px;
+		margin: 0px auto;
+	}
+	#top {
+		padding: 50px 0px;
+		text-decoration: none;
+		height: 0px;
+		margin-bottom: 30px;
+	}
+	
+	#logo h1,a{
+		text-decoration: none;
+		line-height: 80px;
+		margin: 0;
+		padding: 0;
+		color: #525252;
+		}
+	#from b{
+		font-size: 15px;
+	}
+/* ------------------------------------------------------------------------------------ */
 body {
 	font-family: Arial, Helvetica, sans-serif;
-	width:50%;
-		margin-left:25%;
-	    margin-top:10%;
+    width: 700px;
+    margin: auto;
+    margin-top: 160px;
+    height: auto;
 }
 
 form {
-	border: 3px solid #669999;
+	border: 3px solid #525252;
 }
-
 input[type=text], input[type=password] {
 	width: 100%;
 	padding: 12px 20px;
@@ -45,7 +81,7 @@ input[type=text], input[type=password] {
 }
 
 input[type=submit] {
-	background-color: #00ccff;
+	background-color: #525252;
 	color: white;
 	padding: 14px 20px;
 	margin: 8px 0;
@@ -57,25 +93,8 @@ input[type=submit] {
 input[type=submit]:hover {
 	opacity: 0.8;
 }
-
-
-.imgcontainer {
-	text-align: center;
-	margin: 24px 0 12px 0;
-}
-
-img.avatar {
-	width: 40%;
-	border-radius: 50%;
-}
-
-.container {
-	padding: 16px;
-}
-
 span {
 	float: right;
-	padding-top: 16px;
 	text-decoration: none;
 }
 </style>
@@ -83,7 +102,12 @@ span {
 <title>기오를 드립니다 기오PC -- 로그인</title>
 </head>
 <body>
-	<form action="login" onsubmit="return check();" method="post" name="form">
+	<div id="top" class="container">
+		<div id="logo">
+			<h1><a href="#">기오피씨</a></h1>
+		</div>
+	</div>
+	<form action="login" onsubmit="return check();" method="post" name="form" id="from">
 		<div class="container">
 			<label for="uname"><b>아이디</b><input type="text" placeholder="아이디" name="loginId" id="loginId"></label>
 			<label for="psw"><b>비밀번호</b><input type="password" placeholder="비빌번호" name="password"></label> 

@@ -22,15 +22,61 @@
 	}
 </script>
 <style>
+html, body{height: 100%;}
+	
+	body{
+		margin: 0px;
+		padding: 0px;
+		background: #EFEFEF url(images/bg01.png) repeat;
+		font-size: 10pt;
+		font-weight: 400;
+		color: black;
+	}
+	
+	p, ol, ul{margin-top: 0;}
+	
+	a:hover{text-decoration: none;}
+
+	.container{
+		width: 700px;
+		margin: 0px auto;
+	}
+	#top {
+		padding: 50px 0px;
+		text-decoration: none;
+		height: 0px;
+		margin-bottom: 30px;
+	}
+	
+	#logo h1,a{
+		text-decoration: none;
+		line-height: 80px;
+		margin: 0;
+		padding: 0;
+		color: #525252;
+		float: left;
+		}
+	#modify h1{
+		float: left;
+	    margin-left: 160px;
+	    line-height: 10px;
+	    font-size: 43px;
+	    color: black;
+	}
+	#from b{
+		font-size: 15px;
+    	margin-left: 10px;
+	}
+/* -------------------------------------------------------------------------------------- */
 body {
 	font-family: Arial, Helvetica, sans-serif;
-	width: 50%;
-	margin-left: 25%;
-	margin-top: 10%;
+	width: 700px;
+	margin: auto;
 }
 
 form {
-	border: 3px solid #669999;
+	border: 3px solid #525252;
+	width: 700px;
 }
 
 input[type=text], input[type=password], input[type=email], input[type=tel]
@@ -44,7 +90,7 @@ input[type=text], input[type=password], input[type=email], input[type=tel]
 }
 
 input[type=submit] {
-	background-color: #00ccff;
+	background-color: #525252;
 	color: white;
 	padding: 14px 20px;
 	margin: 8px 0;
@@ -58,29 +104,6 @@ input[type=submit]:hover {
 	opacity: 0.8;
 }
 
-.imgcontainer {
-	text-align: center;
-	margin: 24px 0 12px 0;
-}
-
-img.avatar {
-	width: 40%;
-	border-radius: 50%;
-}
-
-.container {
-	padding: 16px;
-}
-
-span {
-	float: right;
-	padding-top: 16px;
-	text-decoration: none;
-}
-a{
-text-decoration: none
-}
-
 .question{
 	color: white;
 	padding: 14px 20px;
@@ -90,16 +113,25 @@ text-decoration: none
 	width: 100%;
 	border: 1px solid #cccccc;
 }
+
+span {
+	float: right;
+	text-decoration: none;
+}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>기오를 드립니다 기오PC -- 회원수정</title>
 </head>
 <body>
-
-		<h1 style="text-align: center">회원가입</h1>
-
-	<form action="modify" onsubmit="return check();" method="post"
-		name="form">
+	<div id="top" class="container">
+		<div id="logo">
+			<h1><a href="#">기오피씨</a></h1>
+		</div>
+		<div id="modify">
+			<h1>정보수정</h1>
+		</div>
+	</div>
+	<form action="modify" onsubmit="return check();" method="post" name="form" id="from">
 		<div class="container">
 			<input type="hidden" name="userId" value="${modReq.userId }">
 			<label for="name"><b>이름</b><input type="text" name="name"value="${modReq.name }" required></label>
@@ -118,7 +150,7 @@ text-decoration: none
 		<div class="container1" style="background-color: #f1f1f1">
 			<span class="psw">
 				<a href="findID.jsp">아이디 찾기 |</a> 
-				<a href="findPw.jsp">비밀번호 찾기 | </a>
+				<a href="">비밀번호 찾기 | </a>
 				<a>회원가입</a> 
 			</span>
 		</div>

@@ -23,7 +23,6 @@ public class ProductListService {
 	private int blockSize = 5;
 
 	public ProductPage ProductList(int pageNum) {
-		System.out.println("adf");
 		try (Connection conn = ConnectionProvider.getConnection()) {
 			ProductDao productDao = ProductDao.getInstance();
 			int total = productDao.selectCount(conn);

@@ -36,7 +36,22 @@ public class ProductDao {
 			return product;
 		}
 	}
-
+	public ArrayList<Product> selectType(Connection conn, String name, int startRow, int size) throws SQLException {
+		String sql = "select * from product where name = ? order by productId limit ?, ?";
+		try (PreparedStatement pst = conn.prepareStatement(sql)) {
+			pst.setString(1, name);
+			pst.setInt(2, startRow);
+			pst.setInt(3, size);
+			try (ResultSet rs = pst.executeQuery()) {
+				ArrayList<Product> products = new ArrayList<>();
+				while (rs.next()) {
+					products.add(makeProduct(rs));
+				}
+				return products;
+			}
+		}
+	}
+	
 	public Product selectName(Connection conn, String name) throws SQLException {
 		String sql = "select * from product where name = ?";
 		try (PreparedStatement pst = conn.prepareStatement(sql)) {
