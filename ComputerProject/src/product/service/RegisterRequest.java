@@ -7,7 +7,6 @@ public class RegisterRequest {
 	private String explanation;
 
 	public RegisterRequest(String name, String productType, int price, String explanation) {
-		super();
 		this.name = name;
 		this.productType = productType;
 		this.price = price;

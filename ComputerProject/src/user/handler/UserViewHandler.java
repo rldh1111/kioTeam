@@ -24,6 +24,7 @@ public class UserViewHandler {
 	}
 
 	private String processSubmit(HttpServletRequest req, HttpServletResponse resp) {
+		System.out.println();
 		return null;
 	}
 

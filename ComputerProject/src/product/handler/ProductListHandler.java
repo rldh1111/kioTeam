@@ -10,6 +10,7 @@ import product.service.ProductPage;
 public class ProductListHandler implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+		System.out.println();
 		ProductListService productListService = ProductListService.getInstance();
 		String pageNum = req.getParameter("pageNum");
 		int pageNo = 1;

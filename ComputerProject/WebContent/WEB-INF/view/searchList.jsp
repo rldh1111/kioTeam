@@ -24,5 +24,6 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<div></div>
 </body>
 </html>

@@ -12,6 +12,7 @@ public class DeleteHandler implements CommandHandler {
 	private static final String FORM_VIEW = "userList"; // 어드민 페이지로 이동
 
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+		System.out.println();
 		try {
 			int userId = Integer.parseInt(req.getParameter("userId"));
 			DeleteService deleteService = DeleteService.getInstance();

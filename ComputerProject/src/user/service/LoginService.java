@@ -16,6 +16,7 @@ public class LoginService {
 	}
 
 	private LoginService() {
+		System.out.println();
 	}
 
 	public User login(String loginId, String password) {

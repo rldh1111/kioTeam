@@ -18,10 +18,11 @@ public class ProductViewService {
 	}
 
 	private ProductViewService() {
-
+System.out.println();
 	}
 
 	public Product selectProduct(int productId) {
+		
 		ProductDao productDao = ProductDao.getInstance();
 		try (Connection conn = ConnectionProvider.getConnection()) {
 			Product product = productDao.selectProductId(conn, productId);

@@ -13,6 +13,7 @@ public class DeleteHandler implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		try {
+			System.out.println();
 			int userId = Integer.parseInt(req.getParameter("userId"));
 			DeleteService deleteService = DeleteService.getInstance();
 			deleteService.delete(userId);

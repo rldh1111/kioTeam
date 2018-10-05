@@ -56,5 +56,6 @@
 			</tr>
 		</c:if>
 	</table>
+	<div></div>
 </body>
 </html>

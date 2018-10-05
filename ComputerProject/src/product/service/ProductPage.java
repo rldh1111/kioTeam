@@ -14,7 +14,7 @@ public class ProductPage {
 	}
 
 	private ProductPage() {
-
+System.out.println();
 	}
 
 	private ArrayList<Product> products;

@@ -15,6 +15,7 @@ public class SearchHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+		System.out.println();
 		try {
 			String search = req.getParameter("search");
 			SearchService searchService = SearchService.getInstance();

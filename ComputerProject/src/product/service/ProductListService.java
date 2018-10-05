@@ -17,6 +17,7 @@ public class ProductListService {
 	}
 
 	private ProductListService() {
+		System.out.println();
 	}
 
 	private int size = 10;
