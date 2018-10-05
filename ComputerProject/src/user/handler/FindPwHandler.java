@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import common.handler.CommandHandler;
 import user.model.User;
-import user.service.FindIdService;
+import user.service.FindPwService;
 
+//password 찾는 handler
+public class FindPwHandler implements CommandHandler {
 
-//Id 찾는 handler
-public class FindIdHandler implements CommandHandler {
+	private static final String FORM_VIEW = "/WEB-INF/view/findPw.jsp";
 
-	private static final String FORM_VIEW = "/WEB-INF/view/findId.jsp";
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		
+
 		if (req.getMethod().equalsIgnoreCase("GET")) {
 			return processForm(req, resp);
 		} else if (req.getMethod().equalsIgnoreCase("POST")) {
@@ -32,14 +32,16 @@ public class FindIdHandler implements CommandHandler {
 	private String processForm(HttpServletRequest req, HttpServletResponse resp) {
 		return FORM_VIEW;
 	}
-	
+
 	private String processSubmit(HttpServletRequest req, HttpServletResponse resp) {
-		FindIdService findIdService =FindIdService.getInstance();
+		FindPwService findPwService = FindPwService.getInstance();
 		try {
-			User user = findIdService.FindId(req.getParameter("name"), req.getParameter("phone"), req.getParameter("email"), req.getParameter("question"), req.getParameter("answer"));							
-				req.setAttribute("user", user);
-				
-				return FORM_VIEW;			
+			User user = findPwService.FindPw(req.getParameter("loginId"), req.getParameter("phone"),
+					req.getParameter("email"), req.getParameter("question"), req.getParameter("answer"));
+
+			req.setAttribute("user", user);
+
+			return FORM_VIEW;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

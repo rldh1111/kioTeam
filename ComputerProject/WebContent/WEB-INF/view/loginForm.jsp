@@ -104,7 +104,7 @@ span {
 <body>
 	<div id="top" class="container">
 		<div id="logo">
-			<h1><a href="#">기오피씨</a></h1>
+			<h1><a href="main.jsp">기오피씨</a></h1>
 		</div>
 	</div>
 	<form action="login" onsubmit="return check();" method="post" name="form" id="from">
@@ -121,7 +121,7 @@ span {
 		<div class="container1" style="background-color:#f1f1f1">
     		<span class="psw">
     			<a href="findId" style="text-decoration: none">아이디 찾기 |</a>
-    			<a href="findFw" style="text-decoration: none">비밀번호 찾기 | </a>
+    			<a href="findPw" style="text-decoration: none">비밀번호 찾기 | </a>
     			<a href="join" style="text-decoration: none">회원가입</a>
     		</span>
   		</div>

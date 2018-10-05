@@ -39,6 +39,7 @@
 		<url-pattern>/join</url-pattern>
 		<url-pattern>/logout</url-pattern>
 		<url-pattern>/findId</url-pattern>
+		<url-pattern>/findPw</url-pattern>
 	</servlet-mapping>
 
 
