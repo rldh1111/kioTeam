@@ -55,6 +55,9 @@
 					</c:if></td>
 			</tr>
 		</c:if>
+		<c:if test="${userPage.hasUsers() == null }">
+			등록된 상품이 없습니다
+		</c:if>
 	</table>
 	<div></div>
 </body>

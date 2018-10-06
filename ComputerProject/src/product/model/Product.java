@@ -3,6 +3,7 @@ package product.model;
 import java.time.LocalDateTime;
 
 public class Product {
+
 	private int productId;
 	private String name;
 	private String productType;
@@ -10,9 +11,10 @@ public class Product {
 	private LocalDateTime wdate;
 	private LocalDateTime udate;
 	private String explanation;
+	private String url;
 
 	public Product(int productId, String name, String productType, int price, LocalDateTime wdate, LocalDateTime udate,
-			String explanation) {
+			String explanation, String url) {
 		super();
 		this.productId = productId;
 		this.name = name;
@@ -21,6 +23,7 @@ public class Product {
 		this.wdate = wdate;
 		this.udate = udate;
 		this.explanation = explanation;
+		this.url = url;
 	}
 
 	public int getProductId() {
@@ -77,6 +80,14 @@ public class Product {
 
 	public void setExplanation(String explanation) {
 		this.explanation = explanation;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 }

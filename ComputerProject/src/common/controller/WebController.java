@@ -14,8 +14,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
+
 import common.handler.CommandHandler;
 import common.handler.NullHandler;
+
 
 public class WebController extends HttpServlet {
 	private Map<String, CommandHandler> hMap = new HashMap<>();
@@ -27,7 +30,6 @@ public class WebController extends HttpServlet {
 		System.out.println(configFilePath);
 		try (FileReader fr = new FileReader(configFilePath)) {
 			prop.load(fr);
-			// 프로퍼티에 담긴 아이를 hMap에 객체로 만들어서 담음
 			for (Object key : prop.keySet()) {
 				Class cl = Class.forName(prop.getProperty((String) key));
 				hMap.put((String) key, (CommandHandler) cl.getDeclaredConstructor().newInstance());

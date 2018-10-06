@@ -38,6 +38,8 @@
 		<url-pattern>/join</url-pattern>
 		<url-pattern>/logout</url-pattern>
 		<url-pattern>/search</url-pattern>
+		<url-pattern>/item</url-pattern>
+		<url-pattern>/item/view</url-pattern>
 		<url-pattern>/admin/productList</url-pattern>
 		<url-pattern>/admin/userList</url-pattern>
 		<url-pattern>/admin/userDelete</url-pattern>

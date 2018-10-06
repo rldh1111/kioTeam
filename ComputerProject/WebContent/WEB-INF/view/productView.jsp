@@ -18,28 +18,26 @@
 
 		<c:forEach var="product" items="${productPage.products }">
 			<tr>
-				<td><a href="productView?${product.productId}">${product.name }</a></td>
+				<td><a href="item/view?productId=${product.productId}">${product.name }</a></td>
 				<td>${product.price }</td>
 				<td>${product.explanation }</td>
+				<td>${product.productType }</td>
 			</tr>
 		</c:forEach>
-		<c:if test="${productPage.hasProducts() }">
-			<tr style="text-align: center">
-				<td colspan="8"><c:if test="${productPage.startPage > 5 }">
-						<a href="productList?pageNum=${productPage.startPage - 5  }"
-							style="text-align: center">[이전]</a>
-					</c:if> <c:forEach var="pageNum" begin="${productPage.startPage}"
-						end="${productPage.endPage }">
-						<a href="productList?pageNum=${pageNum}"
-							style="text-align: center"> [${pageNum}]</a>
-					</c:forEach> <c:if test="${productPage.endPage < userPage.totalPages }">
-						<a href="productList?pageNum=${productPage.startPage + 5 }"
+		<tr style="text-align: center">
+				<td colspan="9"><c:if test="${productPage.startPage > 5 }">
+						<a href="item?productType=cpu&pageNum=${productPage.startPage - 5  }" style="text-align: center">[이전]</a>
+					</c:if> 
+					<c:forEach var="pageNum" begin="${productPage.startPage}" end="${productPage.endPage }">
+						<a href="item?productType=cpu&pageNum=${pageNum}" style="text-align: center"> [${pageNum}]</a>
+					</c:forEach> 
+					<c:if test="${productPage.endPage < productPage.totalPages }">
+						<a href="item?productType=cpu&pageNum=${productPage.startPage + 5 }"
 							style="text-align: center">[다음]</a>
-					</c:if></td>
-
+					</c:if>
+				</td>
 			</tr>
-		</c:if>
-		<c:if test="${productPage.hasProducts() }">
+		<c:if test="${!productPage.hasProducts() }">
 			상품이 존재하지 않습니다
 		</c:if>
 	</table>

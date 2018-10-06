@@ -36,10 +36,12 @@ public class ProductDao {
 			return product;
 		}
 	}
-	public ArrayList<Product> selectType(Connection conn, String name, int startRow, int size) throws SQLException {
-		String sql = "select * from product where name = ? order by productId limit ?, ?";
+
+	public ArrayList<Product> selectType(Connection conn, String productType, int startRow, int size)
+			throws SQLException {
+		String sql = "select * from product where productType = ? order by productId limit ?, ?";
 		try (PreparedStatement pst = conn.prepareStatement(sql)) {
-			pst.setString(1, name);
+			pst.setString(1, productType);
 			pst.setInt(2, startRow);
 			pst.setInt(3, size);
 			try (ResultSet rs = pst.executeQuery()) {
@@ -51,7 +53,7 @@ public class ProductDao {
 			}
 		}
 	}
-	
+
 	public Product selectName(Connection conn, String name) throws SQLException {
 		String sql = "select * from product where name = ?";
 		try (PreparedStatement pst = conn.prepareStatement(sql)) {
@@ -94,7 +96,7 @@ public class ProductDao {
 	}
 
 	public ArrayList<Product> select(Connection conn, String search) throws SQLException { // 검색해서 가져오기
-		String sql = "select * from product where name like '%"+ search +"%'";
+		String sql = "select * from product where name like '%" + search + "%'";
 		ArrayList<Product> products = new ArrayList<Product>();
 		try (Statement pst = conn.createStatement()) {
 			try (ResultSet rs = pst.executeQuery(sql)) {
@@ -106,7 +108,7 @@ public class ProductDao {
 		return products;
 	}
 
-	public void insert(Connection conn, String name, String productType, int price, String explanation)
+	public void insert(Connection conn, String name, String productType, int price, String explanation, String url)
 			throws SQLException { // 제품등록
 		String sql = "insert into product(name, productType, price, explanation) values(?,?,?,?)";
 		try (PreparedStatement pst = conn.prepareStatement(sql)) {
@@ -114,19 +116,22 @@ public class ProductDao {
 			pst.setString(2, productType);
 			pst.setInt(3, price);
 			pst.setString(4, explanation);
+			pst.setString(5, url);
 			pst.executeUpdate();
 		}
 	}
 
-	public void update(Connection conn, int productId, String name, String productType, int price, String explanation)
-			throws SQLException {
-		String sql = "update product set name = ?, productType = ?, price = ?, explanation = ? where productId = ?";
+	public void update(Connection conn, int productId, String name, String productType, int price, String explanation,
+			String url) throws SQLException {
+		String sql = "update product set name = ?, productType = ?, price = ?, explanation = ?, url = ? where productId = ?";
 		try (PreparedStatement pst = conn.prepareStatement(sql)) {
 			pst.setString(1, name);
 			pst.setString(2, productType);
 			pst.setInt(3, price);
 			pst.setString(4, explanation);
-			pst.setInt(5, productId);
+			pst.setString(5, url);
+			pst.setInt(6, productId);
+
 			pst.executeUpdate();
 		}
 	}
@@ -142,7 +147,7 @@ public class ProductDao {
 	private Product makeProduct(ResultSet rs) throws SQLException {
 		Product product = new Product(rs.getInt("productId"), rs.getString("name"), rs.getString("productType"),
 				rs.getInt("price"), rs.getTimestamp("wdate").toLocalDateTime(),
-				rs.getTimestamp("udate").toLocalDateTime(), rs.getString("explanation"));
+				rs.getTimestamp("udate").toLocalDateTime(), rs.getString("explanation"), rs.getString("url"));
 		return product;
 	}
 }

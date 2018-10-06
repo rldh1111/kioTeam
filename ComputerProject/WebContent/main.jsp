@@ -392,7 +392,7 @@
 </style>
 </head>
 <body>
-${ctxPath = pageContext.request.contextPath }
+${ctxPath = pageContext.request.contextPath;'' }
 	<div id="top" class="container">
 		<div id="logo">
 			<h1><a href="main.jsp">기오피씨</a></h1>
@@ -417,7 +417,7 @@ ${ctxPath = pageContext.request.contextPath }
 		</c:if>
 		<c:if test="${user != null }">
 			<div id="modify">
-				<a href="${ctxPath }/modify?userId=${user.userId}" class="modify">회원정보수정</a>
+				<a href="modify?userId=${user.userId}" class="modify">회원정보수정</a>
 			</div>
 			<div id="logout">
 				<a href="logout" class="logout">로그아웃</a>
@@ -434,49 +434,39 @@ ${ctxPath = pageContext.request.contextPath }
 	<div id="header">
 		<div id="menu" class="container">
 			<ul>
-				<li class="computer"><a href="#" class="computer_drop">컴퓨터
-						주요부품</a>
+				<li class="computer"><a href="#" class="computer_drop">컴퓨터 주요부품</a>
 					<div class="computer_content">
-						<a href="#">cpu</a>
-						<a href="#">램</a>
-						<a href="#">메인보드</a>
-						<a href="#">그래픽 카드</a>
-						<a href="#">케이스</a>
-						<a href="#">파워</a>
-						<a href="#">키보드</a>
-						<a href="#">마우스</a>
-						<a href="#">SSD</a>
-						<a href="#">odd</a>
+						<a href="item?productType=cpu">cpu</a>
+						<a href="item?productType=cpu">램</a>
+						<a href="item?productType=cpu">메인보드</a>
+						<a href="item?productType=cpu">그래픽 카드</a>
+						<a href="item?productType=cpu">케이스</a>
+						<a href="item?productType=cpu">파워</a>
+						<a href="item?productType=cpu">키보드</a>
+						<a href="item?productType=cpu">마우스</a>
+						<a href="item?productType=cpu">SSD</a>
+						<a href="item?productType=cpu">odd</a>
 					</div>
 				</li>
 			</ul>
 			<ul>
 				<li class="sound"><a href="#" class="sound_drop">사운드</a>
 					<div class="sound_content">
-						<a href="#">헤드셋</a>
-						<a href="#">스피커</a>
-						<a href="#">마이크</a>
-						<a href="#">사운드 카드</a>
+						<a href="item?productType=cpu">헤드셋</a>
+						<a href="item?productType=cpu">스피커</a>
+						<a href="item?productType=cpu">마이크</a>
+						<a href="item?productType=cpu">사운드 카드</a>
 					</div>
 				</li>
 			</ul>
-			<ul>
-				<li class="assembled_pc"><a href="#" class="assembled_pc_drop">조립PC</a>
-					<div class="assembled_pc_content">
-						<a href="#">10~40만원대</a>
-						<a href="#">50~60만원대</a>
-						<a href="#">70~100만원대</a>
-						<a href="#">90~100만원대</a>
-					</div>
-				</li>
-			</ul>
+		
 			<ul>
 				<li class="laptop"><a href="#" class="laptop_drop">노트북</a>
 					<div class="laptop_content">
-						<a href="#">게이밍 노트북</a>
-						<a href="#">초경량 노트북</a>
-						<a href="#">디자인 노트북</a>
-						<a href="#">비지니스 노트북</a>
+						<a href="item?productType=cpu">게이밍 노트북</a>
+						<a href="item?productType=cpu">초경량 노트북</a>
+						<a href="item?productType=cpu">디자인 노트북</a>
+						<a href="item?productType=cpu">비지니스 노트북</a>
 					</div>
 				</li>
 			</ul>
@@ -484,10 +474,10 @@ ${ctxPath = pageContext.request.contextPath }
 				<li class="storage_device"><a href="#"
 					class="storage_device_drop">저장장치</a>
 					<div class="storage_device_content">
-						<a href="#">외장하드</a>
-						<a href="#">외장SSD</a>
-						<a href="#">NAS</a>
-						<a href="#">USB메모리</a>
+						<a href="item?productType=cpu">외장하드</a>
+						<a href="item?productType=cpu">외장SSD</a>
+						<a href="item?productType=cpu">NAS</a>
+						<a href="item?productType=cpu">USB메모리</a>
 					</div>
 				</li>
 			</ul>
@@ -510,6 +500,7 @@ ${ctxPath = pageContext.request.contextPath }
 					<h2>Recent Updates</h2>
 				</div>
 			</div>
+		
 		</div>
 	</div> 
 	<div id="copyright">

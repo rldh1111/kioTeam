@@ -13,9 +13,9 @@ public class DeleteHandler implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		try {
-			int userId = Integer.parseInt(req.getParameter("userId"));
+			int productId = Integer.parseInt(req.getParameter("productId"));
 			DeleteService deleteService = DeleteService.getInstance();
-			deleteService.delete(userId);
+			deleteService.delete(productId);
 			return FORM_VIEW;
 		} catch (ProductNotFoundException e) {
 			resp.sendError(HttpServletResponse.SC_NOT_FOUND);

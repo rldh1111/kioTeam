@@ -8,14 +8,14 @@ import jdbc.Connection.ConnectionProvider;
 import user.dao.UserDao;
 import user.model.User;
 
-public class ReadUserSerivce {
-	private static ReadUserSerivce instance = new ReadUserSerivce();
+public class UserReadSerivce {
+	private static UserReadSerivce instance = new UserReadSerivce();
 
-	public static ReadUserSerivce getInstance() {
+	public static UserReadSerivce getInstance() {
 		return instance;
 	}
 
-	private ReadUserSerivce() {
+	private UserReadSerivce() {
 	}
 
 	public User readUser(int userId) {
