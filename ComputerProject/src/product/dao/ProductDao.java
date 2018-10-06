@@ -79,6 +79,19 @@ public class ProductDao {
 			return 0;
 		}
 	}
+	
+	public int selectTypeCount(Connection conn, String productType) throws SQLException {
+		String sql = "select count(*) from product where productType = ?";
+		try (PreparedStatement pst = conn.prepareStatement(sql)) {
+			pst.setString(1, productType);
+			try (ResultSet rs = pst.executeQuery()) {
+				if (rs.next()) {
+					return rs.getInt(1);
+				}
+			}
+			return 0;
+		}
+	}
 
 	public ArrayList<Product> selectProudct(Connection conn, int startRow, int size) throws SQLException {
 		String sql = "select * from product order by productId limit ?, ?";

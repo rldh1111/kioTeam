@@ -28,7 +28,8 @@ public class ProductTypeViewService {
 	public ProductPage selectType(String productType, int pageNum) {
 		ProductDao productDao = ProductDao.getInstance();
 		try (Connection conn = ConnectionProvider.getConnection()) {
-			int total = productDao.selectCount(conn);
+			int total = productDao.selectTypeCount(conn, productType);
+			System.out.println(pageNum);
 			ArrayList<Product> products = productDao.selectType(conn, productType, (pageNum - 1) * size, size);
 			if (products == null) {
 				throw new ProductNotFoundException("제품이 없습니다");

@@ -9,13 +9,13 @@ import jdbc.Connection.ConnectionProvider;
 import product.dao.ProductDao;
 import product.model.Product;
 
-public class productMoreViewService {
-	private static productMoreViewService instance = new productMoreViewService();
+public class ProductMoreViewService {
+	private static ProductMoreViewService instance = new ProductMoreViewService();
 
-	private productMoreViewService() {
+	private ProductMoreViewService() {
 	}
 
-	public productMoreViewService getInstance() {
+	public static ProductMoreViewService getInstance() {
 		return instance;
 	}
 

@@ -13,7 +13,6 @@ public class UserPage {
 	}
 
 	private UserPage() {
-	
 	}
 
 	private List<User> users;

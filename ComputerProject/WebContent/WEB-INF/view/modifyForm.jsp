@@ -48,7 +48,7 @@
 		margin-bottom: 30px;
 	}
 	
-	#logo h1,a{
+	#logo a{
 		text-decoration: none;
 		line-height: 80px;
 		margin: 0;
@@ -62,6 +62,18 @@
 	    line-height: 10px;
 	    font-size: 43px;
 	    color: black;
+	}
+	#findId a{
+		float : left;
+		margin-left: 97px;
+		text-decoration: none;
+		line-height: 83px;
+	}
+	#findPw a{
+		float : left;
+		margin-left: 10px;
+		text-decoration: none;
+		line-height: 83px;
 	}
 	#from b{
 		font-size: 15px;
@@ -130,6 +142,12 @@ span {
 		<div id="modify">
 			<h1>정보수정</h1>
 		</div>
+		<div id="findId">
+			<a href="findId">아이디 찾기</a>
+		</div>
+		<div id="findPw">
+				<a href="findPw">비밀번호 찾기</a> 
+		</div>
 	</div>
 	<form action="modify" onsubmit="return check();" method="post" name="form" id="from">
 		<div class="container">
@@ -146,12 +164,6 @@ span {
 			</select></label> 
 			<label for="answer"><b>답변</b><input type="text" name="answer" value="${modReq.answer }" required></label>  
 			<input type="submit" value="수정하기">
-		</div>
-		<div class="container1" style="background-color: #f1f1f1">
-			<span class="psw">
-				<a href="findId">아이디 찾기 |</a>
-				<a href="findPw">비밀번호 찾기</a> 
-			</span>
 		</div>
 	</form>
 </body>
