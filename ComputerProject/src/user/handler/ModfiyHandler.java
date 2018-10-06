@@ -56,8 +56,10 @@ public class ModfiyHandler implements CommandHandler {
 			ModifyRequest modifyRequest = new ModifyRequest(user.getUserId(), user.getName(), user.getPassword(),
 					user.getAddress(), user.getEmail(), user.getPhone(), user.getQuestion(), user.getAnswer());
 			req.setAttribute("modReq", modifyRequest);
+			System.out.println("쎅쓰");
 			return FORM_VIEW;
 		} catch (UserNotFountException e) {
+			e.printStackTrace();
 			resp.sendError(HttpServletResponse.SC_NOT_FOUND);
 			return null;
 		}

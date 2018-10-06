@@ -54,9 +54,9 @@
 		margin-bottom: 30px;
 	}
 	
-	#logo h1,a{
+	#logo a{
 		text-decoration: none;
-		line-height: 80px;
+		line-height: 65px;
 		margin: 0;
 		padding: 0;
 		color: #525252;
@@ -65,22 +65,24 @@
 	#join h1{
 		float: left;
 	    margin-left: 160px;
-	    line-height: 10px;
+	    line-height: 7px;
 	    font-size: 43px;
 	    color: black;
 	}
-	#login{
+	#login a{
 		float: left;
 		margin-left:150px;
+		text-decoration: none;
+		line-height: 80px;
 		height: 20px;
 	}
-	#basket{
+	#basket a{
 		float: left;
 		margin-left:10px;
-	}
-	#login a, #basket a{
 		text-decoration: none;
-		line-height: 80px;}
+		line-height: 80px;
+		height: 20px;
+	}
 	#from b{
 		font-size: 15px;
     	margin-left: 10px;

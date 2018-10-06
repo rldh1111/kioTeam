@@ -39,7 +39,7 @@ html, body{height: 100%;}
 	a:hover{text-decoration: none;}
 
 	.container{
-		width: 690px;
+		width: 700px;
 		margin: 0px auto;
 	}
 	#top {
@@ -49,7 +49,7 @@ html, body{height: 100%;}
 		margin-bottom: 30px;
 	}
 	
-	#logo h1,a{
+	#logo a{
 		text-decoration: none;
 		line-height: 80px;
 		margin: 0;
@@ -58,6 +58,7 @@ html, body{height: 100%;}
 		}
 	#from b{
 		font-size: 15px;
+    	margin-left: 10px;
 	}
 /* ------------------------------------------------------------------------------------ */
 body {
@@ -70,6 +71,7 @@ body {
 
 form {
 	border: 3px solid #525252;
+	width: 700px;
 }
 input[type=text], input[type=password] {
 	width: 100%;

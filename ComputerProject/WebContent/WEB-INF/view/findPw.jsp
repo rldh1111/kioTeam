@@ -50,32 +50,34 @@
 		margin-bottom: 30px;
 	}
 	
-	#logo h1,a{
+	#logo a{
 		text-decoration: none;
-		line-height: 80px;
+		line-height: 65px;
 		margin: 0;
 		padding: 0;
 		color: #525252;
 		float: left;
 	}
-	#findId {
-		float: left;
-		margin-left: 83px;
-	}
-	#login{
-		float: left;
-		margin-left:10px;
-	}
-	#login a, #findId a{
-		text-decoration: none;
-		line-height: 83px;}
-	
 	#findPw h1{
 		float: left;
 	    margin-left: 120px;
-	    line-height: 10px;
+	    line-height: 7px;
 	    font-size: 43px;
 	    color: black;
+	}
+	#login a{
+		float: left;
+		margin-left:10px;
+		text-decoration: none;
+		line-height: 83px;
+		height: 20px;
+	}
+	#findId a{
+		float: left;
+		margin-left: 83px;
+		text-decoration: none;
+		line-height: 83px;
+		height: 20px;
 	}
 	#from b{
 		font-size: 15px;

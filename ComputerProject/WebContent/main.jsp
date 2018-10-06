@@ -17,6 +17,7 @@
 		font-size: 10pt;
 		font-weight: 400;
 		color: #8d8d8d;
+		min-width: 1400px;
 	}
 	
 	h1, h2, h3{
@@ -39,53 +40,10 @@
 	a:hover{text-decoration: none;}
 
 	.container{
-		border: 1px solid black;
 		margin: 0px auto;
 		width: 1400px;
 		text-align: center;
 	}
-/*********************************************************************************/
-/* Social Icon Styles                                                            */
-/*********************************************************************************/
-
-	ul.contact{
-		margin: 0;
-		padding: 2em 0em 0em 0em;
-		list-style: none;
-	}
-	
-	ul.contact li{
-		display: inline-block;
-		padding: 0em 0.10em;
-		font-size: 1em;
-	}
-	
-	ul.contact li span{
-		display: none;
-		margin: 0;
-		padding: 0;
-	}
-	
-	ul.contact li a{
-		color: #FFF;
-	}
-	
-	ul.contact li a:before{
-		display: inline-block;
-		width: 30px;
-		height: 30px;
-		background: #3f3f3f;
-		line-height: 30px;
-		text-align: center;
-		color: #FFFFFF;
-	}
-	
-	ul.contact li a.icon-twitter:before { background: #2DAAE4; }
-	ul.contact li a.icon-facebook:before { background: #39599F; }
-	ul.contact li a.icon-dribbble:before { background: #C4376B;	}
-	ul.contact li a.icon-tumblr:before { background: #31516A; }
-	ul.contact li a.icon-rss:before { background: #F2600B; }
-
 /*********************************************************************************/
 /* Header                                                                        */
 /*********************************************************************************/
@@ -102,39 +60,62 @@
 		padding: 65px 0px;
 		text-decoration: none;
 	}
-	#logo{
+	#logo a{
 		float: left;
-	}
-	#logo h1,a{
 		text-decoration: none;
 		line-height: 1px;
-		}
-	
-	#join{
-		float: left;
-		margin-left:250px;}
+	}
 	#join a{
+		float: left;
+		margin-left:325px;
 		text-decoration: none;
-		line-height: 90px;}
-	
-	#login, #basket{
+		line-height: 66px;
+		height: 20px;
+	}
+	#login a{
 		float: left;
 		margin-left:10px;
-	}
-	#login a, #basket a{
 		text-decoration: none;
-		line-height: 90px;}
-	#modify{
-		float: left;
-		margin-left: 210px;
+		line-height: 66px;
+		height: 20px;
 	}
-	#logout{
+	#basket a{
+		float: left;
+		margin-left:10px;
+		text-decoration: none;
+		line-height: 66px;
+		height: 20px;
+	}
+	#logout a{
+		float: left;
+		margin-left:10px;
+		text-decoration: none;
+		line-height: 66px;
+		height: 20px;
+	}
+
+	#modify a{
+		float: left;
+		margin-left: 225px;
+		text-decoration: none;
+		line-height: 66px;
+		height: 20px;
+	}
+	#productList a{
+		float: left;
+		margin-left: 170px;
+		text-decoration: none;
+		line-height: 66px;
+		height: 20px;
+	}
+	#userList a{
 		float: left;
 		margin-left: 10px;
-	}
-	#logout a, #modify a{
 		text-decoration: none;
-		line-height: 90px;}
+		line-height: 66px;
+		height: 20px;
+	}
+	
 	#search{
 		border: 0.5px solid #525252;
 		float: left;
@@ -392,7 +373,6 @@
 </style>
 </head>
 <body>
-${ctxPath = pageContext.request.contextPath }
 	<div id="top" class="container">
 		<div id="logo">
 			<h1><a href="main.jsp">기오피씨</a></h1>
@@ -416,19 +396,30 @@ ${ctxPath = pageContext.request.contextPath }
 			</div>
 		</c:if>
 		<c:if test="${user != null }">
-			<div id="modify">
-				<a href="${ctxPath }/modify?userId=${user.userId}" class="modify">회원정보수정</a>
-			</div>
-			<div id="logout">
-				<a href="logout" class="logout">로그아웃</a>
+			<c:if test="${user.userType == 'B' }">
+				<div id="modify">
+					<a href="modify?userId=${user.userId}" class="modify">회원정보수정</a>
+				</div>
+				<div id="logout">
+					<a href="logout" class="logout">로그아웃</a>
+				</div>
+			</c:if>
+		</c:if>
+		<c:if test="${user.userType == 'B' }">
+			<div id="basket">
+				<a href="join" class="basket">장바구니</a>
 			</div>
 		</c:if>
-		<div id="basket">
-			<a href="join" class="basket">장바구니</a>
-		</div>
 		<c:if test="${user.userType == 'A' }">
-			<a href="admin/productList">상품관리페이지</a>
-			<a href="admin/userList">회원관리페이지</a>
+			<div id="productList">
+				<a href="admin/productList">상품관리페이지</a>
+			</div>
+			<div id="userList">
+				<a href="admin/userList">회원관리페이지</a>
+			</div>
+			<div id="logout">
+				<a href="logout">로그아웃</a>
+			</div>
 		</c:if>
 	</div>
 	<div id="header">
