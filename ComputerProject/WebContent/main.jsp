@@ -17,6 +17,7 @@
 		font-size: 10pt;
 		font-weight: 400;
 		color: #8d8d8d;
+		min-width: 1400px;
 	}
 	
 	h1, h2, h3{
@@ -39,53 +40,10 @@
 	a:hover{text-decoration: none;}
 
 	.container{
-		border: 1px solid black;
 		margin: 0px auto;
 		width: 1400px;
 		text-align: center;
 	}
-/*********************************************************************************/
-/* Social Icon Styles                                                            */
-/*********************************************************************************/
-
-	ul.contact{
-		margin: 0;
-		padding: 2em 0em 0em 0em;
-		list-style: none;
-	}
-	
-	ul.contact li{
-		display: inline-block;
-		padding: 0em 0.10em;
-		font-size: 1em;
-	}
-	
-	ul.contact li span{
-		display: none;
-		margin: 0;
-		padding: 0;
-	}
-	
-	ul.contact li a{
-		color: #FFF;
-	}
-	
-	ul.contact li a:before{
-		display: inline-block;
-		width: 30px;
-		height: 30px;
-		background: #3f3f3f;
-		line-height: 30px;
-		text-align: center;
-		color: #FFFFFF;
-	}
-	
-	ul.contact li a.icon-twitter:before { background: #2DAAE4; }
-	ul.contact li a.icon-facebook:before { background: #39599F; }
-	ul.contact li a.icon-dribbble:before { background: #C4376B;	}
-	ul.contact li a.icon-tumblr:before { background: #31516A; }
-	ul.contact li a.icon-rss:before { background: #F2600B; }
-
 /*********************************************************************************/
 /* Header                                                                        */
 /*********************************************************************************/
@@ -102,40 +60,63 @@
 		padding: 65px 0px;
 		text-decoration: none;
 	}
-	#logo{
+	.logo a{
 		float: left;
-	}
-	#logo h1,a{
 		text-decoration: none;
 		line-height: 1px;
-		}
-	
-	#join{
+	}
+	.join a{
 		float: left;
-		margin-left:250px;}
-	#join a{
+		margin-left:325px;
 		text-decoration: none;
-		line-height: 90px;}
-	
-	#login, #basket{
+		line-height: 66px;
+		height: 20px;
+	}
+	.login a{
 		float: left;
 		margin-left:10px;
-	}
-	#login a, #basket a{
 		text-decoration: none;
-		line-height: 90px;}
-	#modify{
-		float: left;
-		margin-left: 210px;
+		line-height: 66px;
+		height: 20px;
 	}
-	#logout{
+	.basket a{
+		float: left;
+		margin-left:10px;
+		text-decoration: none;
+		line-height: 66px;
+		height: 20px;
+	}
+	.logout a{
+		float: left;
+		margin-left:10px;
+		text-decoration: none;
+		line-height: 66px;
+		height: 20px;
+	}
+
+	.modify a{
+		float: left;
+		margin-left: 225px;
+		text-decoration: none;
+		line-height: 66px;
+		height: 20px;
+	}
+	.productList a{
+		float: left;
+		margin-left: 170px;
+		text-decoration: none;
+		line-height: 66px;
+		height: 20px;
+	}
+	.userList a{
 		float: left;
 		margin-left: 10px;
-	}
-	#logout a, #modify a{
 		text-decoration: none;
-		line-height: 90px;}
-	#search{
+		line-height: 66px;
+		height: 20px;
+	}
+	
+	.search{
 		border: 0.5px solid #525252;
 		float: left;
 		margin-left:290px;
@@ -392,12 +373,11 @@
 </style>
 </head>
 <body>
-${ctxPath = pageContext.request.contextPath;'' }
 	<div id="top" class="container">
-		<div id="logo">
+		<div class="logo">
 			<h1><a href="main.jsp">기오피씨</a></h1>
 		</div>
-		<div id="search">
+		<div class="search">
 			<form action="search">
 				<table>
 					<tr>
@@ -408,78 +388,89 @@ ${ctxPath = pageContext.request.contextPath;'' }
 			</form>
 		</div>
 		<c:if test="${user == null }">
-			<div id="join">
+			<div class="join">
 				<a href="join" class="join">회원가입</a>
 			</div>
-			<div id="login">
+			<div class="login">
 				<a href="login" class="login">로그인</a>
 			</div>
 		</c:if>
 		<c:if test="${user != null }">
-			<div id="modify">
-				<a href="modify?userId=${user.userId}" class="modify">회원정보수정</a>
-			</div>
-			<div id="logout">
-				<a href="logout" class="logout">로그아웃</a>
+			<c:if test="${user.userType == 'B' }">
+				<div class="modify">
+					<a href="modify?userId=${user.userId}" class="modify">회원정보수정</a>
+				</div>
+				<div class="logout">
+					<a href="logout" class="logout">로그아웃</a>
+				</div>
+			</c:if>
+		</c:if>
+		<c:if test="${user.userType == 'B' }">
+			<div class="basket">
+				<a href="join" class="basket">장바구니</a>
 			</div>
 		</c:if>
-		<div id="basket">
-			<a href="join" class="basket">장바구니</a>
-		</div>
 		<c:if test="${user.userType == 'A' }">
-			<a href="admin/productList">상품관리페이지</a>
-			<a href="admin/userList">회원관리페이지</a>
+			<div class="productList">
+				<a href="admin/productList">상품관리페이지</a>
+			</div>
+			<div class="userList">
+				<a href="admin/userList">회원관리페이지</a>
+			</div>
+			<div class="logout">
+				<a href="logout">로그아웃</a>
+			</div>
 		</c:if>
 	</div>
 	<div id="header">
+	<div id="header">
 		<div id="menu" class="container">
 			<ul>
-				<li class="computer"><a href="#" class="computer_drop">컴퓨터 주요부품</a>
+				<li class="computer">
+					<a href="#" class="computer_drop">컴퓨터 주요부품</a>
 					<div class="computer_content">
-						<a href="item?productType=cpu">cpu</a>
-						<a href="item?productType=cpu">램</a>
+						<a href="item?productType=cpu">cpu</a> 
+						<a href="item?productType=ram">램</a> 
 						<a href="item?productType=cpu">메인보드</a>
-						<a href="item?productType=cpu">그래픽 카드</a>
-						<a href="item?productType=cpu">케이스</a>
-						<a href="item?productType=cpu">파워</a>
-						<a href="item?productType=cpu">키보드</a>
-						<a href="item?productType=cpu">마우스</a>
-						<a href="item?productType=cpu">SSD</a>
-						<a href="item?productType=cpu">odd</a>
+						<a href="item?productType=vga">그래픽 카드</a> 
+						<a href="item?productType=case">케이스</a> 
+						<a href="item?productType=poser">파워</a> 
+						<a href="item?productType=keyboard">키보드</a>
+						<a href="item?productType=mouse">마우스</a> 
+						<a href="item?productType=hdd">HDD</a>
+						<a href="item?productType=ssd">SSD</a> 
+						<a href="item?productType=odd">ODD</a>
 					</div>
 				</li>
 			</ul>
 			<ul>
 				<li class="sound"><a href="#" class="sound_drop">사운드</a>
 					<div class="sound_content">
-						<a href="item?productType=cpu">헤드셋</a>
-						<a href="item?productType=cpu">스피커</a>
-						<a href="item?productType=cpu">마이크</a>
-						<a href="item?productType=cpu">사운드 카드</a>
-					</div>
-				</li>
+						<a href="item?productType=headset">헤드셋</a> <a
+							href="item?productType=speaker">스피커</a> <a
+							href="item?productType=mic">마이크</a> <a
+							href="item?productType=sc">사운드 카드</a>
+					</div></li>
 			</ul>
-		
+
 			<ul>
 				<li class="laptop"><a href="#" class="laptop_drop">노트북</a>
 					<div class="laptop_content">
-						<a href="item?productType=cpu">게이밍 노트북</a>
-						<a href="item?productType=cpu">초경량 노트북</a>
-						<a href="item?productType=cpu">디자인 노트북</a>
-						<a href="item?productType=cpu">비지니스 노트북</a>
-					</div>
-				</li>
+						<a href="item?productType=glap">게이밍 노트북</a> <a
+							href="item?productType=slap">초경량 노트북</a> <a
+							href="item?productType=dlap">디자인 노트북</a> <a
+							href="item?productType=blap">비지니스 노트북</a>
+					</div></li>
 			</ul>
 			<ul>
 				<li class="storage_device"><a href="#"
 					class="storage_device_drop">저장장치</a>
 					<div class="storage_device_content">
-						<a href="item?productType=cpu">외장하드</a>
-						<a href="item?productType=cpu">외장SSD</a>
-						<a href="item?productType=cpu">NAS</a>
-						<a href="item?productType=cpu">USB메모리</a>
-					</div>
-				</li>
+						<a href="item?productType=ehd">외장하드</a> <a
+							href="item?productType=essd">외장SSD</a> <a
+							href="item?productType=nas">NAS</a> <a
+							href="item?productType=usb">USB메모리</a>
+					</div></li>
 			</ul>
 		</div>
 	</div>
@@ -500,7 +491,6 @@ ${ctxPath = pageContext.request.contextPath;'' }
 					<h2>Recent Updates</h2>
 				</div>
 			</div>
-		
 		</div>
 	</div> 
 	<div id="copyright">

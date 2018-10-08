@@ -54,9 +54,9 @@
 		margin-bottom: 30px;
 	}
 	
-	#logo h1,a{
+	#logo a{
 		text-decoration: none;
-		line-height: 80px;
+		line-height: 65px;
 		margin: 0;
 		padding: 0;
 		color: #525252;
@@ -65,22 +65,24 @@
 	#join h1{
 		float: left;
 	    margin-left: 160px;
-	    line-height: 10px;
+	    line-height: 7px;
 	    font-size: 43px;
 	    color: black;
 	}
-	#login{
+	#login a{
 		float: left;
 		margin-left:150px;
+		text-decoration: none;
+		line-height: 80px;
 		height: 20px;
 	}
-	#basket{
+	#basket a{
 		float: left;
 		margin-left:10px;
-	}
-	#login a, #basket a{
 		text-decoration: none;
-		line-height: 80px;}
+		line-height: 80px;
+		height: 20px;
+	}
 	#from b{
 		font-size: 15px;
     	margin-left: 10px;
@@ -197,7 +199,7 @@ input[type=submit]:hover {
 		</div>
 	</div>
 	<div class="container">
-		<form action="join" onsubmit="return check();" method="post" name="form" id="from">
+		<form action="join" onsubmit="return check();alert('회원가입에 성공하였습니다')" method="post" name="form" id="from">
 			<input type="hidden" name="userType" value="B">	
 
 			<label for="loginId">
@@ -227,7 +229,7 @@ input[type=submit]:hover {
 			
 			<label for="phone">
 				<b>전화번호</b>
-				<input type="tel" placeholder="전화번호" name="phone" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required>
+				<input type="tel" placeholder="전화번호" name="phone" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" title="010-####-####형식으로 입력하시오" required>
 			</label> 
 			
 			<label for="address">
@@ -250,7 +252,7 @@ input[type=submit]:hover {
 			<c:if test="${errors.duplicateId }">
 				<script>alert("아이디가 중복되었습니다.");</script>
 			</c:if>
-			<input type="submit" value="회원가입">
+			<input type="submit" value="회원가입" >
 		</form>	
 	</div>
 </body>

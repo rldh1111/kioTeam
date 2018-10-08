@@ -1,5 +1,6 @@
 package product.dao;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -79,7 +80,7 @@ public class ProductDao {
 			return 0;
 		}
 	}
-	
+
 	public int selectTypeCount(Connection conn, String productType) throws SQLException {
 		String sql = "select count(*) from product where productType = ?";
 		try (PreparedStatement pst = conn.prepareStatement(sql)) {
@@ -94,7 +95,7 @@ public class ProductDao {
 	}
 
 	public ArrayList<Product> selectProudct(Connection conn, int startRow, int size) throws SQLException {
-		String sql = "select * from product order by productId limit ?, ?";
+		String sql = "select * from product order by productId desc limit ?, ?";
 		try (PreparedStatement pst = conn.prepareStatement(sql)) {
 			pst.setInt(1, startRow);
 			pst.setInt(2, size);
@@ -123,7 +124,7 @@ public class ProductDao {
 
 	public void insert(Connection conn, String name, String productType, int price, String explanation, String url)
 			throws SQLException { // 제품등록
-		String sql = "insert into product(name, productType, price, explanation) values(?,?,?,?)";
+		String sql = "insert into product(name, productType, price, explanation, url) values(?,?,?,?,?)";
 		try (PreparedStatement pst = conn.prepareStatement(sql)) {
 			pst.setString(1, name);
 			pst.setString(2, productType);
@@ -136,16 +137,15 @@ public class ProductDao {
 
 	public void update(Connection conn, int productId, String name, String productType, int price, String explanation,
 			String url) throws SQLException {
-		String sql = "update product set name = ?, productType = ?, price = ?, explanation = ?, url = ? where productId = ?";
-		try (PreparedStatement pst = conn.prepareStatement(sql)) {
-			pst.setString(1, name);
-			pst.setString(2, productType);
-			pst.setInt(3, price);
-			pst.setString(4, explanation);
-			pst.setString(5, url);
-			pst.setInt(6, productId);
-
-			pst.executeUpdate();
+		String sql = "CALL updateproduct(?,?,?,?,?,?)";
+		try (CallableStatement cs = conn.prepareCall(sql)) {
+			cs.setString(1, name);
+			cs.setString(2, productType);
+			cs.setInt(3, price);
+			cs.setString(4, explanation);
+			cs.setString(5, url);
+			cs.setInt(6, productId);
+			cs.executeUpdate();
 		}
 	}
 

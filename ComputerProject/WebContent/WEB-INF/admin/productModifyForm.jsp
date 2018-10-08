@@ -36,10 +36,16 @@
 				<td>url</td>
 				<td><input type="text" name="url" value="${modReq.url }" required></td>
 			</tr>
+			<tr>
+				<td colspan="2">
+					<img src="${modReq.url }">
+				</td>
+			</tr>
 
 			<tr>
 				<td colspan="2"><input type="submit" value="수정"></td>
 			</tr>
+			
 		</table>
 
 	</form>

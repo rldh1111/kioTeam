@@ -36,8 +36,7 @@
 				<td>${user.question }</td>
 				<td>${user.answer }</td>
 				<td>${user.wdate }</td>
-				<td><button
-						onclick="location.href='userDelete?userId=${user.userId}'">삭제</button>
+				<td><button onclick="location.href='userDelete?userId=${user.userId}'">삭제</button>
 			</tr>
 		</c:forEach>
 		<c:if test="${userPage.hasUsers() }">

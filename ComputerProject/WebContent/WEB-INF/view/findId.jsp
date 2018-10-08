@@ -49,32 +49,34 @@
 		margin-bottom: 30px;
 	}
 	
-	#logo h1,a{
+	#logo a{
 		text-decoration: none;
-		line-height: 80px;
+		line-height: 65px;
 		margin: 0;
 		padding: 0;
 		color: #525252;
 		float: left;
 	}
-	#findPw {
-		float: left;
-		margin-left: 110px;
-	}
-	#login{
-		float: left;
-		margin-left:10px;
-	}
-	#login a, #findPw a{
-		text-decoration: none;
-		line-height: 83px;}
-	
 	#findId h1{
 		float: left;
 	    margin-left: 130px;
-	    line-height: 10px;
+	    line-height: 7px;
 	    font-size: 43px;
 	    color: black;
+	}
+	#login a{
+		float: left;
+		margin-left:10px;
+		text-decoration: none;
+		line-height: 83px;
+		height: 20px;
+	}
+	#findPw a{
+		float: left;
+		margin-left: 102px;
+		text-decoration: none;
+		line-height: 83px;
+		height: 20px;
 	}
 	#from b{
 		font-size: 15px;
@@ -167,14 +169,14 @@
 		</div>
 		
 		<div id="findId">
-			<h1>아이디찾기</h1>
+			<h1>아이디 찾기</h1>
 		</div>
-			<div id="findPw">
-				<a href="findPw">비밀번호 찾기</a>
-			</div>
-			<div id="login">
-				<a href="login">로그인</a>
-			</div>
+		<div id="findPw">
+			<a href="findPw">비밀번호 찾기</a>
+		</div>
+		<div id="login">
+			<a href="login">로그인</a>
+		</div>
 	</div>
 	<form action="findId" onsubmit="return check();" method="post" name="form" id="from">
 		<div class="container">

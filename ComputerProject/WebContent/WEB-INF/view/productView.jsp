@@ -14,7 +14,6 @@
 			<td>상품명</td>
 			<td>가격</td>
 			<td>설명</td>
-
 		</tr>
 
 		<c:forEach var="product" items="${productPage.products }">
@@ -40,6 +39,7 @@
 					</c:if>
 				</td>
 			</tr>
+			
 		<c:if test="${!productPage.hasProducts() }">
 			상품이 존재하지 않습니다
 		</c:if>
