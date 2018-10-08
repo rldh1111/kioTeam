@@ -492,7 +492,7 @@
 					<h2>Recent Updates</h2>
 				</div>
 			</div>
-		</div>
+		</div> 
 	</div> 
 	<div id="copyright">
 		<p>
