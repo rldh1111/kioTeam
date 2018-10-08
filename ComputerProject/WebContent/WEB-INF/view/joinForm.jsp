@@ -54,7 +54,7 @@
 		margin-bottom: 30px;
 	}
 	
-	#logo a{
+	.logo a{
 		text-decoration: none;
 		line-height: 65px;
 		margin: 0;
@@ -62,28 +62,31 @@
 		color: #525252;
 		float: left;
 		}
-	#join h1{
+	.join h1{
 		float: left;
 	    margin-left: 160px;
 	    line-height: 7px;
 	    font-size: 43px;
 	    color: black;
+	    
 	}
-	#login a{
+	.login a{
 		float: left;
 		margin-left:150px;
 		text-decoration: none;
 		line-height: 80px;
 		height: 20px;
+		color: #525252;
 	}
-	#basket a{
+	.basket a{
 		float: left;
 		margin-left:10px;
 		text-decoration: none;
 		line-height: 80px;
 		height: 20px;
+		color: #525252;
 	}
-	#from b{
+	.from b{
 		font-size: 15px;
     	margin-left: 10px;
 	}
@@ -183,23 +186,23 @@ input[type=submit]:hover {
 </head>
 <body>
 	<div id="top" class="container">
-		<div id="logo">
+		<div class="logo">
 			<h1><a href="main.jsp">기오피씨</a></h1>
 		</div>
-		<div id="join">
+		<div class="join">
 			<h1>회원가입</h1>
 		</div>
 		<c:if test="${user == null }">
-			<div id="login">
+			<div class="login">
 				<a href="login" class="login">로그인</a>
 			</div>
 		</c:if>
-		<div id="basket">
+		<div class="basket">
 			<a href="join" class="basket">장바구니</a>
 		</div>
 	</div>
 	<div class="container">
-		<form action="join" onsubmit="return check();" method="post" name="form" id="from">
+		<form action="join" onsubmit="return check();" method="post" name="form" class="from">
 			<input type="hidden" name="userType" value="B">	
 
 			<label for="loginId">

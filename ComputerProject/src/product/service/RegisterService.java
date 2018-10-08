@@ -28,7 +28,7 @@ public class RegisterService {
 				if (product != null) {
 					throw new DuplicatieException("같은 제품이 있습니다.");
 				}
-				productDao.insert(conn,rr.getName() , rr.getProductType(), rr.getPrice(), rr.getExplanation());
+				productDao.insert(conn,rr.getName() , rr.getProductType(), rr.getPrice(), rr.getExplanation(), rr.getUrl());
 				conn.commit();
 			} catch (DuplicatieException e) {
 				conn.rollback();

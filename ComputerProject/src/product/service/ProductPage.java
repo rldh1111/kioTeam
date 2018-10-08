@@ -1,9 +1,5 @@
 package product.service;
-
-import java.util.ArrayList;
-
-import com.sun.org.apache.xml.internal.serializer.ToHTMLSAXHandler;
-
+import java.util.List;
 import product.model.Product;
 
 public class ProductPage {
@@ -17,16 +13,17 @@ public class ProductPage {
 
 	}
 
-	private ArrayList<Product> products;
+	private List<Product> products;
 	private int currentPage;
 	private int totalPages;
 	private int total;//
 	private int startPage;
 	private int endPage;
 
-	public ProductPage(ArrayList<Product> products, int currentPage, int total, int size, int blockSize) {
+	public ProductPage(List<Product> products, int currentPage, int total, int size, int blockSize) {
 		this.products = products;
 		this.currentPage = currentPage;
+		System.out.println(total);
 		this.total = total;
 		if (total == 0) {
 			totalPages = 0;
@@ -45,12 +42,13 @@ public class ProductPage {
 			if (endPage > totalPages) {
 				endPage = totalPages;
 			}
+			System.out.println(endPage);
 		}
 	}
 	public boolean hasProducts() {
 		return total > 0;
 	}
-	public ArrayList<Product> getProducts() {
+	public List<Product> getProducts() {
 		return products;
 	}
 

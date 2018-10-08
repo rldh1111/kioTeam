@@ -12,7 +12,7 @@ import common.handler.CommandHandler;
 import user.model.User;
 import user.service.ModifyRequest;
 import user.service.ModifyService;
-import user.service.ReadUserSerivce;
+import user.service.UserReadSerivce;
 
 public class ModfiyHandler implements CommandHandler {
 
@@ -51,7 +51,7 @@ public class ModfiyHandler implements CommandHandler {
 	private String processForm(HttpServletRequest req, HttpServletResponse resp) throws IOException, SQLException {
 		try {
 			int userId = Integer.parseInt(req.getParameter("userId"));
-			ReadUserSerivce readUserSerivce = ReadUserSerivce.getInstance();
+			UserReadSerivce readUserSerivce = UserReadSerivce.getInstance();
 			User user = readUserSerivce.readUser(userId);
 			ModifyRequest modifyRequest = new ModifyRequest(user.getUserId(), user.getName(), user.getPassword(),
 					user.getAddress(), user.getEmail(), user.getPhone(), user.getQuestion(), user.getAnswer());

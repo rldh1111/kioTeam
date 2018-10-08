@@ -15,8 +15,10 @@
 			<td>name</td>
 			<td>productType</td>
 			<td>price</td>
+			<td>explanation</td>
 			<td>wdate</td>
 			<td>udate</td>
+			<td colspan="2">button</td>
 		</tr>
 	
 		<c:forEach var="product" items="${productPage.products }">
@@ -28,24 +30,26 @@
 				<td>${product.explanation }</td>
 				<td>${product.wdate }</td>
 				<td>${product.udate }</td>
-				<td><button onclick="location.href='productDelete?userId=${product.productId}'">삭제</button>
-			</tr>
+				<td><button onclick="location.href='productDelete?productId=${product.productId}'; alert('삭제완료');">삭제</button>
+				<td><button onclick="location.href='productModify?productId=${product.productId}'">수정</button>			</tr>
 		</c:forEach>
-		<c:if test="${productPage.hasProducts() }">
 			<tr style="text-align: center">
-				<td colspan="8"><c:if test="${productPage.startPage > 5 }">
-						<a href="productList?pageNum=${productPage.startPage - 5  }"
-							style="text-align: center">[이전]</a>
-					</c:if> <c:forEach var="pageNum" begin="${productPage.startPage}"
-						end="${productPage.endPage }">
-						<a href="productList?pageNum=${pageNum}"
-							style="text-align: center"> [${pageNum}]</a>
+				<td colspan="9">
+					<c:if test="${productPage.startPage > 5 }">
+						<a href="productList?pageNum=${productPage.startPage - 5  }" style="text-align: center">[이전]</a>
+					</c:if>
+					<c:forEach var="pageNum" begin="${productPage.startPage}" end="${productPage.endPage }">
+						<a href="productList?pageNum=${pageNum}" style="text-align: center"> [${pageNum}]</a>
 					</c:forEach> <c:if test="${productPage.endPage < userPage.totalPages }">
-						<a href="productList?pageNum=${productPage.startPage + 5 }"
-							style="text-align: center">[다음]</a>
-					</c:if></td>
-
+						<a href="productList?pageNum=${productPage.startPage + 5 }" style="text-align: center">[다음]</a>
+					</c:if>
+				</td>
 			</tr>
+
+		<c:if test="${errors.duplicateName }">
+				<script>
+					alert("이름이 중복되었습니다");
+				</script>
 		</c:if>
 
 

@@ -49,14 +49,14 @@ html, body{height: 100%;}
 		margin-bottom: 30px;
 	}
 	
-	#logo a{
+	.logo a{
 		text-decoration: none;
 		line-height: 80px;
 		margin: 0;
 		padding: 0;
 		color: #525252;
 		}
-	#from b{
+	.from b{
 		font-size: 15px;
     	margin-left: 10px;
 	}
@@ -105,11 +105,11 @@ span {
 </head>
 <body>
 	<div id="top" class="container">
-		<div id="logo">
+		<div class="logo">
 			<h1><a href="main.jsp">기오피씨</a></h1>
 		</div>
 	</div>
-	<form action="login" onsubmit="return check();" method="post" name="form" id="from">
+	<form action="login" onsubmit="return check();" method="post" name="form" class="from">
 		<div class="container">
 			<label for="uname"><b>아이디</b><input type="text" placeholder="아이디" name="loginId" id="loginId"></label>
 			<label for="psw"><b>비밀번호</b><input type="password" placeholder="비빌번호" name="password"></label> 

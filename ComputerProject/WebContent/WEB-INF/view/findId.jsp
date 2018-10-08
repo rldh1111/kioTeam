@@ -49,36 +49,39 @@
 		margin-bottom: 30px;
 	}
 	
-	#logo a{
+	.logo a{
 		text-decoration: none;
 		line-height: 65px;
 		margin: 0;
 		padding: 0;
-		color: #525252;
 		float: left;
+		color: #525252;
 	}
-	#findId h1{
+	.findId h1{
 		float: left;
 	    margin-left: 130px;
 	    line-height: 7px;
 	    font-size: 43px;
 	    color: black;
+	    color: #525252;
 	}
-	#login a{
+	.login a{
 		float: left;
 		margin-left:10px;
 		text-decoration: none;
 		line-height: 83px;
 		height: 20px;
+		color: #525252;
 	}
-	#findPw a{
+	.findPw a{
 		float: left;
 		margin-left: 102px;
 		text-decoration: none;
 		line-height: 83px;
 		height: 20px;
+		color: #525252;
 	}
-	#from b{
+	.from b{
 		font-size: 15px;
     	margin-left: 10px;
 	}
@@ -164,21 +167,21 @@
 </head>
 <body>
 	<div id="top" class="container">
-		<div id="logo">
+		<div class="logo">
 			<h1><a href="main.jsp">기오피씨</a></h1>
 		</div>
 		
-		<div id="findId">
+		<div class="findId">
 			<h1>아이디 찾기</h1>
 		</div>
-		<div id="findPw">
+		<div class="findPw">
 			<a href="findPw">비밀번호 찾기</a>
 		</div>
-		<div id="login">
+		<div class="login">
 			<a href="login">로그인</a>
 		</div>
 	</div>
-	<form action="findId" onsubmit="return check();" method="post" name="form" id="from">
+	<form action="findId" onsubmit="return check();" method="post" name="form" class="from">
 		<div class="container">
 			<label for="name">
 				<b>가입자 성명</b>

@@ -60,33 +60,33 @@
 		padding: 65px 0px;
 		text-decoration: none;
 	}
-	#logo a{
+	.logo a{
 		float: left;
 		text-decoration: none;
 		line-height: 1px;
 	}
-	#join a{
+	.join a{
 		float: left;
 		margin-left:325px;
 		text-decoration: none;
 		line-height: 66px;
 		height: 20px;
 	}
-	#login a{
+	.login a{
 		float: left;
 		margin-left:10px;
 		text-decoration: none;
 		line-height: 66px;
 		height: 20px;
 	}
-	#basket a{
+	.basket a{
 		float: left;
 		margin-left:10px;
 		text-decoration: none;
 		line-height: 66px;
 		height: 20px;
 	}
-	#logout a{
+	.logout a{
 		float: left;
 		margin-left:10px;
 		text-decoration: none;
@@ -94,21 +94,21 @@
 		height: 20px;
 	}
 
-	#modify a{
+	.modify a{
 		float: left;
 		margin-left: 225px;
 		text-decoration: none;
 		line-height: 66px;
 		height: 20px;
 	}
-	#productList a{
+	.productList a{
 		float: left;
 		margin-left: 170px;
 		text-decoration: none;
 		line-height: 66px;
 		height: 20px;
 	}
-	#userList a{
+	.userList a{
 		float: left;
 		margin-left: 10px;
 		text-decoration: none;
@@ -116,7 +116,7 @@
 		height: 20px;
 	}
 	
-	#search{
+	.search{
 		border: 0.5px solid #525252;
 		float: left;
 		margin-left:290px;
@@ -229,6 +229,7 @@
 		padding: 4em 0em 6em 0em;
 		background: #FFF;
 		border-top: 1px solid #47A665;
+		border: 1px solid black;
 	}
 
 	#page{
@@ -374,10 +375,10 @@
 </head>
 <body>
 	<div id="top" class="container">
-		<div id="logo">
+		<div class="logo">
 			<h1><a href="main.jsp">기오피씨</a></h1>
 		</div>
-		<div id="search">
+		<div class="search">
 			<form action="search">
 				<table>
 					<tr>
@@ -388,36 +389,36 @@
 			</form>
 		</div>
 		<c:if test="${user == null }">
-			<div id="join">
+			<div class="join">
 				<a href="join" class="join">회원가입</a>
 			</div>
-			<div id="login">
+			<div class="login">
 				<a href="login" class="login">로그인</a>
 			</div>
 		</c:if>
 		<c:if test="${user != null }">
 			<c:if test="${user.userType == 'B' }">
-				<div id="modify">
+				<div class="modify">
 					<a href="modify?userId=${user.userId}" class="modify">회원정보수정</a>
 				</div>
-				<div id="logout">
+				<div class="logout">
 					<a href="logout" class="logout">로그아웃</a>
 				</div>
 			</c:if>
 		</c:if>
 		<c:if test="${user.userType == 'B' }">
-			<div id="basket">
+			<div class="basket">
 				<a href="join" class="basket">장바구니</a>
 			</div>
 		</c:if>
 		<c:if test="${user.userType == 'A' }">
-			<div id="productList">
+			<div class="productList">
 				<a href="admin/productList">상품관리페이지</a>
 			</div>
-			<div id="userList">
+			<div class="userList">
 				<a href="admin/userList">회원관리페이지</a>
 			</div>
-			<div id="logout">
+			<div class="logout">
 				<a href="logout">로그아웃</a>
 			</div>
 		</c:if>
@@ -425,62 +426,51 @@
 	<div id="header">
 		<div id="menu" class="container">
 			<ul>
-				<li class="computer"><a href="#" class="computer_drop">컴퓨터
-						주요부품</a>
+				<li class="computer">
+					<a href="#" class="computer_drop">컴퓨터 주요부품</a>
 					<div class="computer_content">
-						<a href="#">cpu</a>
-						<a href="#">램</a>
-						<a href="#">메인보드</a>
-						<a href="#">그래픽 카드</a>
-						<a href="#">케이스</a>
-						<a href="#">파워</a>
-						<a href="#">키보드</a>
-						<a href="#">마우스</a>
-						<a href="#">SSD</a>
-						<a href="#">odd</a>
+						<a href="item?productType=cpu">cpu</a> 
+						<a href="item?productType=ram">램</a> 
+						<a href="item?productType=cpu">메인보드</a>
+						<a href="item?productType=vga">그래픽 카드</a> 
+						<a href="item?productType=case">케이스</a> 
+						<a href="item?productType=poser">파워</a> 
+						<a href="item?productType=keyboard">키보드</a>
+						<a href="item?productType=mouse">마우스</a> 
+						<a href="item?productType=hdd">HDD</a>
+						<a href="item?productType=ssd">SSD</a> 
+						<a href="item?productType=odd">ODD</a>
 					</div>
 				</li>
 			</ul>
 			<ul>
 				<li class="sound"><a href="#" class="sound_drop">사운드</a>
 					<div class="sound_content">
-						<a href="#">헤드셋</a>
-						<a href="#">스피커</a>
-						<a href="#">마이크</a>
-						<a href="#">사운드 카드</a>
-					</div>
-				</li>
+						<a href="item?productType=headset">헤드셋</a> <a
+							href="item?productType=speaker">스피커</a> <a
+							href="item?productType=mic">마이크</a> <a
+							href="item?productType=sc">사운드 카드</a>
+					</div></li>
 			</ul>
-			<ul>
-				<li class="assembled_pc"><a href="#" class="assembled_pc_drop">조립PC</a>
-					<div class="assembled_pc_content">
-						<a href="#">10~40만원대</a>
-						<a href="#">50~60만원대</a>
-						<a href="#">70~100만원대</a>
-						<a href="#">90~100만원대</a>
-					</div>
-				</li>
-			</ul>
+
 			<ul>
 				<li class="laptop"><a href="#" class="laptop_drop">노트북</a>
 					<div class="laptop_content">
-						<a href="#">게이밍 노트북</a>
-						<a href="#">초경량 노트북</a>
-						<a href="#">디자인 노트북</a>
-						<a href="#">비지니스 노트북</a>
-					</div>
-				</li>
+						<a href="item?productType=glap">게이밍 노트북</a> <a
+							href="item?productType=slap">초경량 노트북</a> <a
+							href="item?productType=dlap">디자인 노트북</a> <a
+							href="item?productType=blap">비지니스 노트북</a>
+					</div></li>
 			</ul>
 			<ul>
 				<li class="storage_device"><a href="#"
 					class="storage_device_drop">저장장치</a>
 					<div class="storage_device_content">
-						<a href="#">외장하드</a>
-						<a href="#">외장SSD</a>
-						<a href="#">NAS</a>
-						<a href="#">USB메모리</a>
-					</div>
-				</li>
+						<a href="item?productType=ehd">외장하드</a> <a
+							href="item?productType=essd">외장SSD</a> <a
+							href="item?productType=nas">NAS</a> <a
+							href="item?productType=usb">USB메모리</a>
+					</div></li>
 			</ul>
 		</div>
 	</div>
