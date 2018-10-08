@@ -30,9 +30,8 @@ public class ModifyService {
 					throw new ProductNotFoundException("없는 제품입니다");
 				}
 				product = productDao.selectName(conn, mr.getName());
-				
 					if (product != null) {
-						if (!product.getName().equals(mr.getName())) {
+						if (product.getName().equals(mr.getName())) {
 							throw new DuplicatieException("이름이 중복됩니다");
 						}
 						

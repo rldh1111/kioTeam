@@ -13,7 +13,7 @@ import product.service.RegisterRequest;
 import product.service.RegisterService;
 
 public class RegisterHandler implements CommandHandler {
-	private static final String FORM_VIEW = "#"; // 어드민 페이지로 이동
+	private static final String FORM_VIEW = "/WEB-INF/admin/productRegisterForm.jsp"; // 어드민 페이지로 이동
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
@@ -32,9 +32,8 @@ public class RegisterHandler implements CommandHandler {
 	}
 
 	private String processSubmit(HttpServletRequest req, HttpServletResponse resp) throws SQLException {
-
 		RegisterRequest registerRequest = new RegisterRequest(req.getParameter("name"), req.getParameter("productType"),
-				Integer.parseInt(req.getParameter("price")), req.getParameter("explanation"),req.getParameter("url"));
+				Integer.parseInt(req.getParameter("price")), req.getParameter("explanation"), req.getParameter("url"));
 		Map<String, Boolean> errors = new HashMap<String, Boolean>();
 		req.setAttribute("errors", errors);
 		if (!errors.isEmpty()) {

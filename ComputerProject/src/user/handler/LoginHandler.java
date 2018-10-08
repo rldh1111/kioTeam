@@ -50,7 +50,12 @@ public class LoginHandler implements CommandHandler {
 		}
 	}
 
-	private String processForm(HttpServletRequest req, HttpServletResponse resp) {
+	private String processForm(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+
+		if (req.getSession().getAttribute("user") != null) {
+			resp.sendRedirect("main.jsp");
+			return null;
+		}
 		return FORM_VIEW;
 	}
 }
