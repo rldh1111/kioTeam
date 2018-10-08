@@ -6,25 +6,76 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	html, body{height: 100%;}
+	
+	body{
+		margin: 0px;
+		padding: 0px;
+		background: #EFEFEF url(images/bg01.png) repeat;
+		font-family: 'Open Sans', sans-serif;
+		font-size: 10pt;
+		text-align: center;
+		width: 1000px;
+		margin: auto;
+	}
+	
+	h1, h2, h3{
+		margin: 0;
+		padding: 0;
+		color: #525252;
+	}
+	
+	p, ol, ul{margin-top: 0;}
+	
+	ol, ul{
+		padding: 0;
+		list-style: none;
+	}
+	
+	p{line-height: 180%;}
+
+	a{color: #525252;}
+	
+	a:hover{text-decoration: none;}
+
+	.container{
+		margin: 0px auto;
+		width: 1400px;
+		text-align: center;
+	}
+	table {
+	border: 3px solid #525252;
+	border-collapse: collapse;
+	width: 1000px;
+	}
+	table th,td{
+		border-bottom : 1px solid black;
+		padding: 3px;
+	}
+</style>
 </head>
 <body>
-	<table border="1">
+	<div id="user" class="container">
+	<table>
 		<tr>
-			<td>userId</td>
-			<td>userType</td>
-			<td>name</td>
-			<td>loginId</td>
-			<td>password</td>
-			<td>address</td>
-			<td>email</td>
-			<td>phone</td>
-			<td>question</td>
-			<td>answer</td>
-			<td>wdate</td>
+			<th>userId</th>
+			<th>userType</th>
+			<th>name</th>
+			<th>loginId</th>
+			<th>password</th>
+			<th>address</th>
+			<th>email</th>
+			<th>phone</th>
+			<th>question</th>
+			<th>answer</th>
+			<th>wdate</th>
+			<th>delete</th>
 		</tr>
 		<c:forEach var="user" items="${userPage.users}">
 			<tr>
-				<td><a href="userModify?userId=${user.userId }">${user.userId }</a>
+				<td>
+					<a href="userModify?userId=${user.userId }">${user.userId }</a>
 				</td>
 				<td>${user.userType }</td>
 				<td>${user.name }</td>
@@ -41,23 +92,22 @@
 		</c:forEach>
 		<c:if test="${userPage.hasUsers() }">
 			<tr style="text-align: center">
-				<td colspan="11"><c:if test="${userPage.startPage > 5 }">
-						<a href="userList?pageNum=${userPage.startPage - 5  }"
-							style="text-align: center">[이전]</a>
-					</c:if> <c:forEach var="pageNum" begin="${userPage.startPage}"
-						end="${userPage.endPage }">
-						<a href="userList?pageNum=${pageNum}" style="text-align: center">
-							[${pageNum}]</a>
-					</c:forEach> <c:if test="${userPage.endPage < userPage.totalPages }">
-						<a href="userList?pageNum=${userPage.startPage + 5 }"
-							style="text-align: center">[다음]</a>
-					</c:if></td>
+				<td colspan="12"><c:if test="${userPage.startPage > 5 }">
+						<a href="userList?pageNum=${userPage.startPage - 5  }" style="text-align: center">[이전]</a>
+					</c:if>
+					<c:forEach var="pageNum" begin="${userPage.startPage}" end="${userPage.endPage }">
+						<a href="userList?pageNum=${pageNum}" style="text-align: center">[${pageNum}]</a>
+					</c:forEach>
+					<c:if test="${userPage.endPage < userPage.totalPages }">
+						<a href="userList?pageNum=${userPage.startPage + 5 }" style="text-align: center">[다음]</a>
+					</c:if>
+				</td>
 			</tr>
 		</c:if>
 		<c:if test="${userPage.hasUsers() == null }">
 			등록된 상품이 없습니다
 		</c:if>
 	</table>
-	<div></div>
+	</div>
 </body>
 </html>

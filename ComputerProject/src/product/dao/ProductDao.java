@@ -137,6 +137,7 @@ public class ProductDao {
 
 	public void update(Connection conn, int productId, String name, String productType, int price, String explanation,
 			String url) throws SQLException {
+
 		String sql = "CALL updateproduct(?,?,?,?,?,?)";
 		try (CallableStatement cs = conn.prepareCall(sql)) {
 			cs.setString(1, name);
@@ -146,6 +147,7 @@ public class ProductDao {
 			cs.setString(5, url);
 			cs.setInt(6, productId);
 			cs.executeUpdate();
+
 		}
 	}
 

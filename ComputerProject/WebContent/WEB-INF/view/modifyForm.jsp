@@ -48,7 +48,7 @@
 		margin-bottom: 30px;
 	}
 	
-	#logo a{
+	.logo a{
 		text-decoration: none;
 		line-height: 80px;
 		margin: 0;
@@ -56,26 +56,28 @@
 		color: #525252;
 		float: left;
 		}
-	#modify h1{
+	.modify h1{
 		float: left;
 	    margin-left: 160px;
 	    line-height: 10px;
 	    font-size: 43px;
 	    color: black;
 	}
-	#findId a{
+	.findId a{
 		float : left;
 		margin-left: 97px;
 		text-decoration: none;
 		line-height: 83px;
+		color: #525252;
 	}
-	#findPw a{
+	.findPw a{
 		float : left;
 		margin-left: 10px;
 		text-decoration: none;
 		line-height: 83px;
+		color: #525252;
 	}
-	#from b{
+	.from b{
 		font-size: 15px;
     	margin-left: 10px;
 	}
@@ -136,20 +138,20 @@ span {
 </head>
 <body>
 	<div id="top" class="container">
-		<div id="logo">
+		<div class="logo">
 			<h1><a href="main.jsp">기오피씨</a></h1>
 		</div>
-		<div id="modify">
+		<div class="modify">
 			<h1>정보수정</h1>
 		</div>
-		<div id="findId">
+		<div class="findId">
 			<a href="findId">아이디 찾기</a>
 		</div>
-		<div id="findPw">
-				<a href="findPw">비밀번호 찾기</a> 
+		<div class="findPw">
+				<a href="findPw">비밀번호 찾기</a>
 		</div>
 	</div>
-	<form action="modify" onsubmit="return check();" method="post" name="form" id="from">
+	<form action="modify" onsubmit="return check();" method="post" name="form" class="from">
 		<div class="container">
 			<input type="hidden" name="userId" value="${modReq.userId }">
 			<label for="name"><b>이름</b><input type="text" name="name"value="${modReq.name }" required></label>

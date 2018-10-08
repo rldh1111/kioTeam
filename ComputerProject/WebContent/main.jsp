@@ -1,4 +1,5 @@
 
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -229,6 +230,7 @@
 		padding: 4em 0em 6em 0em;
 		background: #FFF;
 		border-top: 1px solid #47A665;
+		border: 1px solid black;
 	}
 
 	#page{
@@ -423,7 +425,6 @@
 		</c:if>
 	</div>
 	<div id="header">
-	<div id="header">
 		<div id="menu" class="container">
 			<ul>
 				<li class="computer">
@@ -500,3 +501,4 @@
 	</div>
 </body>
 </html>
+
