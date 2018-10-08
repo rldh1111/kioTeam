@@ -46,7 +46,6 @@
 				<td colspan="2"><input type="submit" value="수정"></td>
 			</tr>
 		</table>
-
 	</form>
 </body>
 </html>

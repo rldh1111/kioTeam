@@ -165,7 +165,7 @@ span {
 				<option value="가장 아끼는 물건은 ?">가장 아끼는 물건은 ?</option>
 			</select></label> 
 			<label for="answer"><b>답변</b><input type="text" name="answer" value="${modReq.answer }" required></label>  
-			<input type="submit" value="수정하기">
+			<input type="submit" value="수정하기" ">
 		</div>
 	</form>
 </body>
