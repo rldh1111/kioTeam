@@ -46,7 +46,7 @@
 		<url-pattern>/admin/userModify</url-pattern>
 		<url-pattern>/admin/productDelete</url-pattern>
 		<url-pattern>/admin/productModify</url-pattern>
-		<url-pattern>/admin/productRegister</url-pattern>
+		<url-pattern>/admin/productRegister</url-pattern> 
 		<url-pattern>/findId</url-pattern>
 		<url-pattern>/findPw</url-pattern>
 
