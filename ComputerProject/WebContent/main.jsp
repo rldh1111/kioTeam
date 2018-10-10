@@ -13,7 +13,7 @@
 	body{
 		margin: 0px;
 		padding: 0px;
-		background: #EFEFEF url(images/bg01.png) repeat;
+		background: #EFEFEF;
 		font-family: 'Open Sans', sans-serif;
 		font-size: 10pt;
 		font-weight: 400;
@@ -60,6 +60,7 @@
 	#top {
 		padding: 65px 0px;
 		text-decoration: none;
+		margin: auto;
 	}
 	.logo a{
 		float: left;
@@ -126,7 +127,7 @@
 		height: 46px;
 	}
 	#text{
-		margin-left : 5px;
+		margin-left : 3px;
 		height:30px;
 		font-size: 16px;
 		width: 500px;
@@ -140,7 +141,6 @@
 		outline: none;
 		cursor: pointer;
 	}
-
 /*********************************************************************************/
 /* Menu                                                                          */
 /*********************************************************************************/
