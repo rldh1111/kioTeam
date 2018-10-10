@@ -19,7 +19,6 @@ import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
 import common.handler.CommandHandler;
 import common.handler.NullHandler;
 
-
 public class WebController extends HttpServlet {
 	private Map<String, CommandHandler> hMap = new HashMap<>();
 

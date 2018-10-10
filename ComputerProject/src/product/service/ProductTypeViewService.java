@@ -31,7 +31,7 @@ public class ProductTypeViewService {
 			int total = productDao.selectTypeCount(conn, productType);
 			System.out.println(pageNum);
 			ArrayList<Product> products = productDao.selectType(conn, productType, (pageNum - 1) * size, size);
-			if (products == null) {
+			if (products.isEmpty()) {
 				throw new ProductNotFoundException("제품이 없습니다");
 			}
 			return new ProductPage(products, pageNum, total, size, blockSize);

@@ -7,15 +7,15 @@ import javax.servlet.http.HttpSession;
 import common.handler.CommandHandler;
 
 public class LogoutHandler implements CommandHandler {
-
+	
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		HttpSession session = req.getSession(false);
 		if (session != null) {
 			session.invalidate();
 		}
-		resp.sendRedirect("main.jsp");
-		return null;
+		
+		return "/WEB-INF/view/logout.jsp";
 	}
 
 }

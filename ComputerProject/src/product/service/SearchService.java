@@ -24,10 +24,12 @@ public class SearchService {
 		ProductDao productDao = ProductDao.getInstance();
 		try (Connection conn = ConnectionProvider.getConnection()) {
 			ArrayList<Product> products = productDao.select(conn, search);
-			if (products == null) {
+			if (products.isEmpty()) {
 				throw new ProductNotFoundException("검색한 제품이 없습니다");
 			}
 			return products;
+		}catch(ProductNotFoundException e) {
+			throw e;
 		}
 
 	}
