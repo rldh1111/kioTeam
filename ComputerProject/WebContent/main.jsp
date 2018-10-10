@@ -7,13 +7,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>기오피씨</title>
+
 <style type="text/css">
 	html, body{height: 100%;}
 	
 	body{
 		margin: 0px;
 		padding: 0px;
-		background: #EFEFEF url(images/bg01.png) repeat;
+		background: #EFEFEF;
 		font-family: 'Open Sans', sans-serif;
 		font-size: 10pt;
 		font-weight: 400;
@@ -120,7 +121,7 @@
 	.search{
 		border: 0.5px solid #525252;
 		float: left;
-		margin-left:290px;
+		margin-left:400px;
 		background-color: #525252;
 		width: 570px;
 		height: 46px;
@@ -384,7 +385,7 @@
 				<table>
 					<tr>
 						<td><input type="text" name="search" id="text"></td>
-						<td><input type="submit" value="검색" id="submit"></td>
+						<td><input type="submit" value="검색" id="submit" autofocus></td>
 					</tr>
 				</table>
 			</form>
@@ -403,14 +404,12 @@
 					<a href="modify?userId=${user.userId}" class="modify">회원정보수정</a>
 				</div>
 				<div class="logout">
-					<a href="logout" class="logout">로그아웃</a>
+					<a href="logout" class="logout" >로그아웃</a>
+				</div>
+				<div class="basket">
+					<a href="join" class="basket">장바구니</a>
 				</div>
 			</c:if>
-		</c:if>
-		<c:if test="${user.userType == 'B' }">
-			<div class="basket">
-				<a href="join" class="basket">장바구니</a>
-			</div>
 		</c:if>
 		<c:if test="${user.userType == 'A' }">
 			<div class="productList">
