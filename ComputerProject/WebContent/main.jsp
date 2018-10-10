@@ -61,6 +61,7 @@
 	#top {
 		padding: 65px 0px;
 		text-decoration: none;
+		margin: auto;
 	}
 	.logo a{
 		float: left;
@@ -127,7 +128,7 @@
 		height: 46px;
 	}
 	#text{
-		margin-left : 5px;
+		margin-left : 3px;
 		height:30px;
 		font-size: 16px;
 		width: 500px;
@@ -141,7 +142,6 @@
 		outline: none;
 		cursor: pointer;
 	}
-
 /*********************************************************************************/
 /* Menu                                                                          */
 /*********************************************************************************/
