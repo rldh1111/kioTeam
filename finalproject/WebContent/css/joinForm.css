@@ -1,0 +1,125 @@
+@CHARSET "UTF-8";
+	body{
+		background: #EFEFEF;
+		font-size: 10pt;
+		margin: auto;
+	}
+	
+	.container{
+		width: 700px;
+		margin: 0px auto;
+	}
+	#header {
+		padding: 60px 0px;
+		height: 0px;
+		margin-bottom: 20px;
+	}
+	
+	.logo a{
+		text-decoration: none;
+		line-height: 65px;
+		color: #525252;
+		float: left;
+		}
+	.join h1{
+		float: left;
+	    margin-left: 160px;
+	    line-height: 0px;
+	    font-size: 43px;
+	    color: black;
+	    
+	}
+	.login a{
+		float: right;
+		text-decoration: none;
+		line-height: 80px;
+		height: 20px;
+		color: #525252;
+	}
+	.from b{
+		font-size: 15px;
+    	margin-left: 10px;
+	}
+
+	form {
+		border-top: 2px solid black;
+		padding-top: 15px;
+	}
+	
+	input[type=text], input[type=password] {
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+	}
+	input[type=email] {
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+	}
+	input[type=tel]{
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+	}
+	
+	
+	input[type=submit] {
+		background-color: #747474;
+		color: white;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		cursor: pointer;
+		width: 100%;
+	}
+	input[type=name] {
+		background-color: #00ccff;
+		color: white;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		cursor: pointer;
+		width: 100%;
+	}
+	input[type=addres] {
+		background-color: #00ccff;
+		color: white;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		cursor: pointer;
+		width: 100%;
+	}
+	
+	input[type=button] {
+		background-color: black;
+		color: white;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		cursor: pointer;
+		width: 100%;
+	}
+	.question{
+		background-color: white;
+		color: black;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		cursor: pointer;
+		width: 100%;
+		font-size: 13px;
+	}
+	
+	input[type=submit]:hover {
+		opacity: 0.8;
+	}

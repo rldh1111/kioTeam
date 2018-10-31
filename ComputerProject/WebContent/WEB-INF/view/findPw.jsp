@@ -20,7 +20,6 @@
 			 f.email.focus();
 			 return false;
 		 }
-	
 	}
 </script>
 <style>
@@ -217,13 +216,7 @@
 			
 					
 			<label for="yourId">
-					<c:if test="${user.loginId != null}">				
-					고객님의 비밀번호는 ${user.loginId }입니다.</c:if>
-						<c:if test="${param.phone != null}">
-							<c:if test ="${user.loginId == null}">
-								입력한 정보로 가입된 비밀번호가 없습니다.				
-							</c:if>
-					</c:if>
+			
 	
 			</label>
 

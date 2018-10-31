@@ -23,7 +23,6 @@ public class WebController extends HttpServlet {
 	private Map<String, CommandHandler> hMap = new HashMap<>();
 
 	public void init() throws ServletException {
-		// 핸들러와 커맨드 명령어 정보가 있는 프로퍼티 파일을 프로퍼티 객체에 담기
 		Properties prop = new Properties();
 		String configFilePath = getServletContext().getRealPath(getInitParameter("handlerConfigFile"));
 		System.out.println(configFilePath);
@@ -60,6 +59,7 @@ public class WebController extends HttpServlet {
 	}
 
 	@Override
+	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		process(req, resp);
 	}
@@ -67,6 +67,7 @@ public class WebController extends HttpServlet {
 	
 	private void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String command = req.getRequestURI();
+		
 		System.out.println(command);
 		CommandHandler handler = null;
 		if (command.indexOf(req.getContextPath()) == 0) {

@@ -20,13 +20,13 @@ public class FindIdService {
 		return instance;
 	}
 
-	public User FindId(String name, String phone, String email, String question, String answer) throws SQLException {
+	public User FindId(String name, String phone, String email, String question, String answer)  {
 		UserDao userDao = UserDao.getInstance();
 		try (Connection conn = ConnectionProvider.getConnection()) {
 			User user = userDao.selectIdByName(conn, name, phone, email,question, answer);
 			
 			return user;
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			throw new RuntimeException(e);
 
 		}

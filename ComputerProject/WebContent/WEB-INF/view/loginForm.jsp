@@ -70,7 +70,7 @@ body {
 }
 
 form {
-	border: 3px solid #525252;
+	border-top: 3px solid #525252;
 	width: 700px;
 }
 input[type=text], input[type=password] {
@@ -111,7 +111,7 @@ span {
 	</div>
 	<form action="login" onsubmit="return check();" method="post" name="form" class="from">
 		<div class="container">
-			<label for="uname"><b>아이디</b><input type="text" placeholder="아이디" name="loginId" id="loginId" autofocus></label>
+			<label for="uname"><b>아이디</b><input type="text" placeholder="아이디" name="loginId" id="loginId" autofocus ></label>
 			<label for="psw"><b>비밀번호</b><input type="password" placeholder="비빌번호" name="password"></label> 
 			<input type="submit" value="로그인">
 			<c:if test="${errors.idOrPwNotMatch }">

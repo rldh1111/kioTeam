@@ -5,17 +5,22 @@ public class Payment {
 	private int productId;
 	private String productName;
 	private int numbers;
+	private int price;
+	private int userId;
 	private String loginId;
 	private String userName;
 	private String address;
 	private String phone;
 
-	public Payment(int paymentId, int productId, String productName, int numbers, String loginId, String userName,
-			String address, String phone) {
+	public Payment(int paymentId, int productId, String productName, int numbers, int price, int userId, String loginId,
+			String userName, String address, String phone) {
+		super();
 		this.paymentId = paymentId;
 		this.productId = productId;
 		this.productName = productName;
 		this.numbers = numbers;
+		this.price = price;
+		this.userId = userId;
 		this.loginId = loginId;
 		this.userName = userName;
 		this.address = address;
@@ -52,6 +57,22 @@ public class Payment {
 
 	public void setNumbers(int numbers) {
 		this.numbers = numbers;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getLoginId() {

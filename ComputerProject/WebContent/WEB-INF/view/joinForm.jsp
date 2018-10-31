@@ -98,8 +98,8 @@ body {
 	margin-top: 0%;
 }
 
-form {
-	border: 3px solid #525252;
+form {	
+	border-top : 3px solid #525252;
 	width: 700px;
 }
 
@@ -209,17 +209,17 @@ input[type=submit]:hover {
 
 			<label for="loginId">
 				<b>아이디</b>
-				<input type="text" placeholder="아이디" name="loginId" id="loginId">
+				<input type="text" placeholder="아이디" name="loginId" id="loginId" required>
 			</label> 
 			
 			<label for="password">
 				<b>비밀번호</b>
-				<input type="password" placeholder="비빌번호" name="password">
+				<input type="password" placeholder="비빌번호" name="password" required>
 			</label> 
 			
 			<label for="confirmPassword">
 				<b>비밀번호확인</b>
-				<input type="password" placeholder="비밀번호확인" name="confirmPassword" id="confirmPassword">
+				<input type="password" placeholder="비밀번호확인" name="confirmPassword" id="confirmPassword" required>
 			</label> 
 				
 			<label for="name">

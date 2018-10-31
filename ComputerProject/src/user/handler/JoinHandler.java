@@ -42,11 +42,10 @@ public class JoinHandler implements CommandHandler {
 		if (!errors.isEmpty()) {
 			return FORM_VIEW;
 		}
-		JoinService joinService = JoinService.getInstance();
 		try {
+			JoinService joinService = JoinService.getInstance();
 			joinService.join(joinRequest);
-			resp.sendRedirect("login");
-			return null;
+			return "/WEB-INF/script/joinSuccess.jsp";
 		} catch (DuplicatieException e) {
 			errors.put("duplicateId", true);
 			return FORM_VIEW;

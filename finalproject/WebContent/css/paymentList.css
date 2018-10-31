@@ -1,0 +1,236 @@
+@CHARSET "UTF-8";
+body{
+		margin: 0px;
+		padding: 0px;
+		background: #EFEFEF;
+		font-size: 10pt;
+		min-width: 1400px;
+	}
+	a:hover{text-decoration: none;}
+	a{color: #525252;}
+	.container{
+		margin: 0px auto;
+		width: 1400px;
+		text-align: center;
+	}
+/*********************************************************************************/
+/* header                                                                        */
+/*********************************************************************************/
+	#header {
+		padding: 65px 0px;
+		text-decoration: none;
+		margin: auto;
+	}
+	.logo a{
+		float: left;
+		text-decoration: none;
+		line-height: 1px;
+		color: #525252;
+	}
+	.join a{
+		float: left;
+		margin-left:325px;
+		text-decoration: none;
+		line-height: 66px;
+		height: 20px;
+	}
+	.login a{
+		float: left;
+		margin-left:10px;
+		text-decoration: none;
+		line-height: 66px;
+		height: 20px;
+	}
+	.basket a{
+		float: left;
+		margin-left:10px;
+		text-decoration: none;
+		line-height: 66px;
+		height: 20px;
+	}
+	.logout a{
+		float: left;
+		margin-left:10px;
+		text-decoration: none;
+		line-height: 66px;
+		height: 20px;
+	}
+
+	.modify a{
+		float: left;
+		margin-left: 160px;
+		text-decoration: none;
+		line-height: 66px;
+		height: 20px;
+	}
+	.productList a{
+		float: left;
+		margin-left: 180px;
+		text-decoration: none;
+		line-height: 66px;
+		height: 20px;
+	}
+	.userList a{
+		float: left;
+		margin-left: 10px;
+		text-decoration: none;
+		line-height: 66px;
+		height: 20px;
+	}
+	.payment a{
+		float: left;
+		margin-left: 10px;
+		text-decoration: none;
+		line-height: 66px;
+		height: 20px;
+	}
+	
+	.search{
+		border: 0.5px solid #525252;
+		float: left;
+		margin-left:290px;
+		background-color: #525252;
+		width: 570px;
+		height: 46px;
+	}
+	#text{
+		margin-left : 3px;
+		height:30px;
+		font-size: 16px;
+		width: 500px;
+	}
+	#submit{
+		border: 0px;
+		width: 50px;
+		height: 40px;
+		color: white;
+		background-color: #525252;
+		outline: none;
+		cursor: pointer;
+	}
+/*********************************************************************************/
+/* Menu                                                                          */
+/*********************************************************************************/
+	#menu {
+		background-color: #333;
+		width: 100%
+	}
+	
+	#menu ul{
+	    padding: 10px 2px 10px 2px;
+	    list-style: none;
+	    display: inline-block;
+	}
+	
+	#menu li{
+		display: inline-block;
+		text-align: left;
+	}
+	
+	#menu a{
+		padding: 13px 20px;
+	    letter-spacing: 1px;
+	    font-weight: 700;
+	    color: #FFF;
+	}
+	
+	#menu .computer_drop, .sound_drop, .assembled_pc_drop, .laptop_drop, .storage_device_drop{
+	    display: inline-block;
+	    text-align: center;
+	    text-decoration: none;
+	    background: #525252;
+	}
+	
+	#menu li a:hover, .computer:hover .computer_drop,
+				.sound:hover .sound_drop,
+				.assembled_pc:hover .assembled_pc_drop,
+				.laptop:hover .laptop_drop,
+				.storage_device:hover .storage_device_drop{
+	    background-color: #747474;
+	}
+	
+	#menu li .computer, .sound, .assembled_pc, .laptop, .storage_device{
+	    display: inline-block;
+	}
+	
+	#menu .computer_content, .sound_content, .assembled_pc_content, .laptop_content, .storage_device_content{
+	    display: none;
+	    position: absolute;
+	    left: auto;
+	    background-color: #333;
+	    min-width: 160px;
+	    z-index: 1;
+	}
+	
+	#menu .computer_content a, .sound_content a, .assembled_pc_content a, .laptop_content a, .storage_device_content a{
+	    padding: 12px 16px;
+	    text-decoration: none;
+	    display: block;
+	}
+	
+	#menu .computer_content a:hover,
+		.sound_content a:hover,
+		.assembled_pc_content a:hover,
+		.laptop_content a:hover,
+		.storage_device_content a:hover{
+		background: #949494;
+		text-decoration: none;
+	}
+	#menu .computer:hover .computer_content,
+		.sound:hover .sound_content,
+		.assembled_pc:hover .assembled_pc_content,
+		.laptop:hover .laptop_content,
+		.storage_device:hover .storage_device_content{
+	    display: inline-block;
+	}
+
+/*********************************************************************************/
+/* main                                                                          */
+/*********************************************************************************/
+
+	#main{
+		padding: 5em 0em 0em 0em;
+		background: #FFF;
+		height: 700px;
+	}
+	.paymentList {
+    	height: 647px;
+	}
+	.paymentList table{
+    	border-collapse: collapse;
+		text-align: center;
+		margin: 0px auto;
+    	font-size: 20px;
+    	width: 1000px;
+	}
+	.paymentList td{
+		border-bottom: 1px solid black;
+		padding-top: 10px;
+	}
+	#pageNum{
+		padding-top: 80em;
+	}
+	
+	.pageNum {
+		text-decoration: none;
+		border: 0.5px solid gray;
+		border-radius: 4px;
+		padding: 1px;
+		color: black;
+	}
+	.pageNum:hover {
+		text-decoration: none;
+		background-color: gray;
+	}
+/*********************************************************************************/
+/* footer                                                                        */
+/*********************************************************************************/
+
+	#footer {
+		padding: 50px;
+	    font-size: 15px;
+	    letter-spacing: 0.10em;
+	    text-align: center;
+	    background-color: #313131;
+	    color: white;
+	}

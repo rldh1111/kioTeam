@@ -1,0 +1,120 @@
+@CHARSET "UTF-8";
+	body{
+		background: #EFEFEF;
+		font-size: 10pt;
+		width: 700px;
+		margin: auto;
+		margin-top: 120px;
+	}
+	
+	.container{
+		width: 700px;
+		margin: 10px auto;
+	}
+	#header {
+		padding: 60px 0px;
+		height: 0px;
+		margin-bottom: 30px;
+	}
+	
+	.logo a{
+		text-decoration: none;
+		line-height: 80px;
+		color: #525252;
+		float: left;
+	}
+	.findPw h1{
+		float: left;
+	    margin-left: 115px;
+	    line-height: 0px;
+	    font-size: 43px;
+	    color: black;
+	}
+	.login a{
+		float: left;
+		margin-left:10px;
+		text-decoration: none;
+		line-height: 100px;
+		height: 20px;
+		color: #525252;
+	}
+	.findId a{
+		float: left;
+		margin-left: 83px;
+		text-decoration: none;
+		line-height: 100px;
+		height: 20px;
+		color: #525252;
+	}
+	.from b{
+		font-size: 15px;
+    	margin-left: 10px;
+	}
+	
+	form {
+		border-top: 2px solid black;
+		padding-top: 15px;
+		width: 700px;
+	}
+	
+	input[type=text], input[type=password] {
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+	}
+	
+	input[type=submit] {
+		background-color: #525252;
+		color: white;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		cursor: pointer;
+		width: 100%;
+	}
+	
+	input[type=email] {
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+	}
+	input[type=tel]{
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+	}
+	
+	.question{
+		background-color: white;
+		color: black;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		cursor: pointer;
+		width: 100%;
+		font-size: 13px;
+	}
+	.userId{
+		background-color: white;
+		color: black;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		cursor: pointer;
+		width: 100%;
+		font-size: 13px;
+	}
+	
+	input[type=submit]:hover {
+		opacity: 0.8;
+	}
+	

@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import jdbc.Connection.ConnectionProvider;
-import shopping.dao.ShoppingDAO;
+import shopping.dao.ShoppingDao;
 import shopping.model.Shopping;
 
 public class ModifyShoppingService {
@@ -18,7 +18,7 @@ public class ModifyShoppingService {
 	}
 
 	public void modify(ModifyRequest mr) {
-		ShoppingDAO shoppingDAO = ShoppingDAO.getInstance();
+		ShoppingDao shoppingDAO = ShoppingDao.getInstance();
 
 		try (Connection conn = ConnectionProvider.getConnection()) {
 			try {

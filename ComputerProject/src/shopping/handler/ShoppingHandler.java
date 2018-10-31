@@ -38,7 +38,6 @@ public class ShoppingHandler implements CommandHandler {
 		ShoppingRequest shoppingRequest = new ShoppingRequest(Integer.parseInt(req.getParameter("productId")),
 				req.getParameter("productType"),user.getLoginId(), req.getParameter("productName"), Integer.parseInt(req.getParameter("price")),
 				Integer.parseInt(req.getParameter("count")));
-
 		ShoppingService shoppingService = ShoppingService.getInstance();
 		shoppingService.insert(shoppingRequest);
 		return FORM_VIEW;

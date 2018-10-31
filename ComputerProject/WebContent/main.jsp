@@ -7,7 +7,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>기오피씨</title>
-
 <style type="text/css">
 	html, body{height: 100%;}
 	
@@ -122,7 +121,7 @@
 	.search{
 		border: 0.5px solid #525252;
 		float: left;
-		margin-left:400px;
+		margin-left:290px;
 		background-color: #525252;
 		width: 570px;
 		height: 46px;
@@ -231,8 +230,12 @@
 		padding: 4em 0em 6em 0em;
 		background: #FFF;
 		border-top: 1px solid #47A665;
+	}
+	#page-wrapper li{
 		border: 1px solid black;
 	}
+	
+	
 
 	#page{
 		overflow: hidden;
@@ -385,7 +388,7 @@
 				<table>
 					<tr>
 						<td><input type="text" name="search" id="text"></td>
-						<td><input type="submit" value="검색" id="submit" autofocus></td>
+						<td><input type="submit" value="검색" id="submit"></td>
 					</tr>
 				</table>
 			</form>
@@ -399,19 +402,27 @@
 			</div>
 		</c:if>
 		<c:if test="${user != null }">
+		
 			<c:if test="${user.userType == 'B' }">
+				<div class="payment">
+					<a href="payment">결제내역확인</a>
+				</div>
 				<div class="modify">
 					<a href="modify?userId=${user.userId}" class="modify">회원정보수정</a>
 				</div>
 				<div class="logout">
-					<a href="logout" class="logout" >로그아웃</a>
+					<a href="logout" class="logout">로그아웃</a>
 				</div>
-				<div class="basket">
-					<a href="join" class="basket">장바구니</a>
+				<div class="shopping">
+					<a href="shopping" class=shopping>장바구니</a>
 				</div>
 			</c:if>
 		</c:if>
+
 		<c:if test="${user.userType == 'A' }">
+				<div class="payment">
+					<a href="admin/payment">결제내역확인</a>
+				</div>
 			<div class="productList">
 				<a href="admin/productList">상품관리페이지</a>
 			</div>
@@ -474,24 +485,12 @@
 			</ul>
 		</div>
 	</div>
-	<div id="page-wrapper">
-		<div id="featured" class="container">
-			<div class="box">
-				<div class="title">
-					<h2>Recent Updates</h2>
-				</div>
-			</div>
-			<div class="box">
-				<div class="title">
-					<h2>Recent Updates</h2>
-				</div>
-			</div>
-			<div class="box">
-				<div class="title">
-					<h2>Recent Updates</h2>
-				</div>
-			</div>
-		</div> 
+	<div id="page-wrapper" class="container">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
 	</div> 
 	<div id="copyright">
 		<p>

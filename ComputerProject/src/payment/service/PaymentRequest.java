@@ -5,32 +5,30 @@ import java.util.ArrayList;
 import shopping.model.Shopping;
 
 public class PaymentRequest {
-	private int paymentId;
 	private int productId;
 	private String productName;
 	private int numbers;
+	private int price;
+	private int userId;
 	private String loginId;
 	private String userName;
 	private String address;
 	private String phone;
-	private ArrayList<Shopping> shoppings = new ArrayList<>();
 
-	public PaymentRequest(int paymentId, int productId, String productName, int numbers, String loginId,
-			String userName, String address, String phone, ArrayList<Shopping> shoppings) {
+
+
+	public PaymentRequest(int productId, String productName, int numbers, int price, int userId, String loginId,
+			String userName, String address, String phone) {
 		super();
-		this.paymentId = paymentId;
 		this.productId = productId;
 		this.productName = productName;
 		this.numbers = numbers;
+		this.price = price;
+		this.userId = userId;
 		this.loginId = loginId;
 		this.userName = userName;
 		this.address = address;
 		this.phone = phone;
-		this.shoppings = shoppings;
-	}
-
-	public int getPaymentId() {
-		return paymentId;
 	}
 
 	public int getProductId() {
@@ -43,6 +41,14 @@ public class PaymentRequest {
 
 	public int getNumbers() {
 		return numbers;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public int getUserId() {
+		return userId;
 	}
 
 	public String getLoginId() {
@@ -61,8 +67,6 @@ public class PaymentRequest {
 		return phone;
 	}
 
-	public ArrayList<Shopping> getShoppings() {
-		return shoppings;
-	}
+
 
 }

@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 
 import jdbc.Connection.ConnectionProvider;
-import shopping.dao.ShoppingDAO;
+import shopping.dao.ShoppingDao;
 import shopping.model.Shopping;
 import user.model.User;
 
@@ -18,7 +18,7 @@ public class ShoppingService {
 	}
 	
 	public void insert(ShoppingRequest sr) {
-		ShoppingDAO shoppingDAO = ShoppingDAO.getInstance();
+		ShoppingDao shoppingDAO = ShoppingDao.getInstance();
 		try(Connection conn = ConnectionProvider.getConnection()){
 			conn.setAutoCommit(false);
 			shoppingDAO.insert(conn, new Shopping(sr.getProductId(),sr.getProductType(), sr.getLoginId(), sr.getProductname(),

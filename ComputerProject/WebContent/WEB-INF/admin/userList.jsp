@@ -56,6 +56,15 @@
 </style>
 </head>
 <body>
+<script>
+	function deleteFunc(userId){
+		var r = confirm("정말로 삭제하시겠습니까?");
+		if(r == true){
+			location.href = "userDelete?userId="+userId;
+		}
+		
+	}
+</script>
 	<div id="user" class="container">
 	<table>
 		<tr>
@@ -87,12 +96,15 @@
 				<td>${user.question }</td>
 				<td>${user.answer }</td>
 				<td>${user.wdate }</td>
-				<td><button onclick="location.href='userDelete?userId=${user.userId}'">삭제</button>
+				<td><button onclick="deleteFunc(${user.userId})">삭제</button>
 			</tr>
 		</c:forEach>
 		<c:if test="${userPage.hasUsers() }">
 			<tr style="text-align: center">
-				<td colspan="12"><c:if test="${userPage.startPage > 5 }">
+				
+				<td colspan="12">
+					<a href="userList?pageNum=1" style="text-align: center">[처음으로]</a>
+					<c:if test="${userPage.startPage > 5 }">
 						<a href="userList?pageNum=${userPage.startPage - 5  }" style="text-align: center">[이전]</a>
 					</c:if>
 					<c:forEach var="pageNum" begin="${userPage.startPage}" end="${userPage.endPage }">
@@ -101,6 +113,7 @@
 					<c:if test="${userPage.endPage < userPage.totalPages }">
 						<a href="userList?pageNum=${userPage.startPage + 5 }" style="text-align: center">[다음]</a>
 					</c:if>
+					<a href="userList?pageNum=${userPage.totalPages }" style="text-align: center">[마지막으로]</a>
 				</td>
 			</tr>
 		</c:if>

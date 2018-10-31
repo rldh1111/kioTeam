@@ -189,7 +189,7 @@
 			</label>
 			<label for="phone">
 				<b>가입자 전화번호</b>
-				<input type="tel" placeholder="전화번호" name="phone" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"required>
+				<input type="tel" placeholder="전화번호" name="phone" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" title="010-####-####형식으로 입력하시오" required>
 			</label>
 			<label for="email">
 				<b>가입자 이메일</b>
@@ -207,14 +207,6 @@
 				<input type="text" name="answer" placeholder="답변" required>
 			</label> 
 			<label for="yourId">
-			<c:if test="${user.loginId != null }">
-				고객님의 아이디는  [ ${user.loginId} ] 입니다.
-			</c:if>
-			<c:if test="${param.name != null }">
-				<c:if test="${user.loginId == null }">
-					입력한 정보로 가입된 아이디가 없습니다.
-				</c:if>
-			</c:if>
 			</label> <input type="submit" value="아이디 찾기">
 		</div>
 	</form>

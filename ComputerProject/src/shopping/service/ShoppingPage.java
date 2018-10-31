@@ -5,14 +5,14 @@ import java.util.List;
 import shopping.model.Shopping;
 
 public class ShoppingPage {
-	private List<Shopping> spList;
+	private List<Shopping> shoppings;
 	private int currentPage;
 	private int totalPages;
 	private int total;
 	private int startPage;
 	private int endPage;
-	public ShoppingPage(List<Shopping> spList, int currentPage, int total, int size, int blockSize) {
-		this.spList = spList;
+	public ShoppingPage(List<Shopping> shoppings, int currentPage, int total, int size, int blockSize) {
+		this.shoppings = shoppings;
 		this.currentPage = currentPage;
 		this.total=total;
 		if(total == 0) {
@@ -41,8 +41,8 @@ public class ShoppingPage {
 	public boolean hasProduct() {
 		return total > 0;
 	}
-	public List<Shopping> getSpList() {
-		return spList;
+	public List<Shopping> getShoppings() {
+		return shoppings;
 	}
 	public int getCurrentPage() {
 		return currentPage;
@@ -59,7 +59,4 @@ public class ShoppingPage {
 	public int getEndPage() {
 		return endPage;
 	}
-	
-	
-
 }

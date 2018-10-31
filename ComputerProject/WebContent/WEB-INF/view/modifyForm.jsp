@@ -155,7 +155,7 @@ span {
 		<div class="container">
 			<input type="hidden" name="userId" value="${modReq.userId }">
 			<label for="name"><b>이름</b><input type="text" name="name"value="${modReq.name }" required></label>
-			<label for="password"><b>비밀번호</b><input type="text" name="password"></label>
+			<label for="password"><b>비밀번호</b><input type="text" name="password" required></label>
 			<label for="confirmPassword"><b>비밀번호 확인</b><input type="text" name="confirmPassword" required></label>
 			<label for="address"><b>주소</b> <input type="text" name="address" value="${modReq.address }" required></label> 
 			<label for="email"><b>이메일</b> <input type="email" name="email" value="${modReq.email }" required></label> 
@@ -165,7 +165,7 @@ span {
 				<option value="가장 아끼는 물건은 ?">가장 아끼는 물건은 ?</option>
 			</select></label> 
 			<label for="answer"><b>답변</b><input type="text" name="answer" value="${modReq.answer }" required></label>  
-			<input type="submit" value="수정하기" ">
+			<input type="submit" value="수정하기">
 		</div>
 	</form>
 </body>

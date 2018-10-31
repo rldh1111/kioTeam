@@ -39,8 +39,7 @@ public class ModfiyHandler implements CommandHandler {
 		try {
 			ModifyService modifyService = ModifyService.getInstance();
 			modifyService.modify(modifyRequest);
-			resp.sendRedirect("main.jsp");
-			return null;
+			return "/WEB-INF/script/userModifySuccess.jsp";
 		} catch (UserNotFountException e) {
 			resp.sendError(HttpServletResponse.SC_NOT_FOUND);
 			return null;

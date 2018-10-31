@@ -16,7 +16,7 @@ public class DeleteHandler implements CommandHandler {
 			int userId = Integer.parseInt(req.getParameter("userId"));
 			DeleteService deleteService = DeleteService.getInstance();
 			deleteService.delete(userId);
-			return FORM_VIEW;
+			return "/WEB-INF/script/userDeleteSuccess.jsp";
 		} catch (UserNotFountException e) {
 			resp.sendError(HttpServletResponse.SC_NOT_FOUND);
 			return null;

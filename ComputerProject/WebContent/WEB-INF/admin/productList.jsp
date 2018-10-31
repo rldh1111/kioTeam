@@ -8,7 +8,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<script>
+	function deleteFunc(productId){
+		    var r = confirm("정말 삭제하시겠습니까?");
+		    if (r == true) {
+		    	location.href="productDelete?productId="+productId;
+		    } 
+	}
+</script>
 	<table border="1">
 		<tr>
 			<td>url</td>
@@ -26,7 +33,7 @@
 			<tr>
 				<td><img src="${product.url }"
 					style="width: 100px; height: 100px"></td>
-				<td><a href="productModify?userId=${product.productId }">${product.productId }</a>
+				<td><a href="productModify?productId=${product.productId }">${product.productId }</a>
 				</td>
 				<td>${product.name }</td>
 				<td>${product.productType }</td>
@@ -34,28 +41,24 @@
 				<td>${product.explanation }</td>
 				<td>${product.wdate }</td>
 				<td>${product.udate }</td>
-				<td><button onclick="location.href='productDelete?productId=${product.productId}'">삭제</button>
-				<td><button onclick="location.href='productModify?productId=${product.productId}'">수정</button>
+				<td><button onclick="deleteFunc(${product.productId})">삭제</button>
+				<td><button
+						onclick="location.href='productModify?productId=${product.productId}'">수정</button>
 			</tr>
 		</c:forEach>
 
 		<tr style="text-align: center">
-			<td colspan="9">
-				<a href="productList?pageNum=1">[처음]</a>
-	
-				<c:if test="${productPage.startPage > 5 }">
-					<a href="productList?pageNum=${productPage.startPage - 5  }" style="text-align: center">[이전]</a>
-				</c:if>
-	
-				<c:forEach var="pageNum" begin="${productPage.startPage}" end="${productPage.endPage }">
+			<td colspan="9"><a href="productList?pageNum=1">[처음]</a> <c:if
+					test="${productPage.startPage > 5 }">
+					<a href="productList?pageNum=${productPage.startPage - 5  }"
+						style="text-align: center">[이전]</a>
+				</c:if> <c:forEach var="pageNum" begin="${productPage.startPage}"
+					end="${productPage.endPage }">
 					<a href="productList?pageNum=${pageNum}" style="text-align: center">[${pageNum}]</a>
-				</c:forEach>
-	
-				<c:if test="${productPage.endPage < productPage.totalPages }">
-					<a href="productList?pageNum=${productPage.startPage + 5 }" style="text-align: center">[다음]</a>
-				</c:if>
-		
-				<a href="productList?${productPage.totalPages }">[마지막]</a>
+				</c:forEach> <c:if test="${productPage.endPage < productPage.totalPages }">
+					<a href="productList?pageNum=${productPage.startPage + 5 }"
+						style="text-align: center">[다음]</a>
+				</c:if> <a href="productList?${productPage.totalPages }">[마지막]</a>
 			<td>
 		</tr>
 

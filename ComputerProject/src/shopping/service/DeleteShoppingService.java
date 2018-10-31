@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import jdbc.Connection.ConnectionProvider;
-import shopping.dao.ShoppingDAO;
+import shopping.dao.ShoppingDao;
 import shopping.model.Shopping;
 
 public class DeleteShoppingService {
@@ -13,7 +13,7 @@ public class DeleteShoppingService {
 	public static DeleteShoppingService getInstance() {return instance;}
 	
 	public void delete(DeleteRequest dr) {
-		ShoppingDAO shoppingDAO = ShoppingDAO.getInstance();
+		ShoppingDao shoppingDAO = ShoppingDao.getInstance();
 		try(Connection conn = ConnectionProvider.getConnection()){
 			try {
 				conn.setAutoCommit(false);

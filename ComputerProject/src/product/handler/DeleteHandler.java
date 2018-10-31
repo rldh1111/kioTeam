@@ -16,7 +16,7 @@ public class DeleteHandler implements CommandHandler {
 			int productId = Integer.parseInt(req.getParameter("productId"));
 			DeleteService deleteService = DeleteService.getInstance();
 			deleteService.delete(productId);
-			return FORM_VIEW;
+			return "/WEB-INF/script/productDeleteSuccess.jsp";
 		} catch (ProductNotFoundException e) {
 			resp.sendError(HttpServletResponse.SC_NOT_FOUND);
 			return FORM_VIEW;

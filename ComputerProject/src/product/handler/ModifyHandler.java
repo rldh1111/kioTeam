@@ -47,8 +47,7 @@ public class ModifyHandler implements CommandHandler {
 		try {
 			ModifyService modifyService = ModifyService.getInstance();
 			modifyService.modify(modifyRequest);
-			resp.sendRedirect("productList");
-			return null;
+			return "/WEB-INF/script/productModifySuccess.jsp";
 		} catch (DuplicatieException e) {
 			errors.put("duplicateName", true);
 			return "productList";
